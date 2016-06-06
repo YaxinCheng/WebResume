@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+
+{% for each in Information %}
+	{% if each["Type"] == 0 %}
+		<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+	            <div class="mdl-card mdl-cell mdl-cell--12-col">
+	              <div class="mdl-card__supporting-text">
+	              <h4>{{each["Title"]}}</h4>
+	              <h6>{{each["Description"]|safe}}</h6>
+	              </div>
+	            </div>
+	            {% if each["MoreButton"] == true %}
+	            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+	              <i class="material-icons">more_vert</i>
+	            </button>
+	            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
+		            {% for i in range(each["ButtonOptions"]|length) %}
+		            	{% if each["ButtonEnable"][i] == true %}
+		            	<li class="mdl-menu__item">{{each["ButtonOptions"][i]}}</li>
+		            	{% else %}
+		            	<li class="mdl-menu__item" disabled>{{each["ButtonOptions"][i]}}</li>
+		            	{% endif %}
+		            {% endfor %}
+		            </ul>
+	          </section>
+		        {% endif %}
+	 {% endif %}
+	 
+{% endfor %}
+<section class="section--footer--small-section mdl-color--grey-100 mdl-grid"></section>
+</div>
+{% endblock %}

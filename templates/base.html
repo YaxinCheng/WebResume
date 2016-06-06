@@ -1,0 +1,135 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Everything about Yaxin Cheng</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link id="Theme" rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-green.min.css">
+    <link rel="stylesheet" href= {{ url_for('static', filename = 'styles.css')}}>
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Yaxin Cheng</h3><br>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <h6>"Computer science is no more about computers than astronomy is about telescope" -- Edsger Dijkstra</h6><br>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#overview" onclick="switchThemeToIndigo()" class="mdl-layout__tab is-active">Overview</a>
+          <a href="#education" onclick="switchThemeToGreen()" class="mdl-layout__tab">Education &amp; Skills</a>
+          <script>
+            function switchThemeToIndigo() {
+              link = document.getElementById("Theme")
+              link.href = "https://code.getmdl.io/1.1.2/material.indigo-green.min.css"
+            }
+            function switchThemeToGreen() {
+              link = document.getElementById("Theme")
+              link.href = "https://code.getmdl.io/1.1.3/material.teal-blue.min.css"
+            }
+            function switchThemeToBlue() {
+              link = document.getElementById("Theme")
+              link.href = "https://code.getmdl.io/1.1.2/material.blue-orange.min.css"
+            }
+            function switchThemeToPurple() {
+              link = document.getElementById("Theme")
+              link.href = "https://code.getmdl.io/1.1.2/material.deep_purple-red.min.css"
+            }
+            function switchThemeToAmber() {
+              link = document.getElementById("Theme")
+              link.href = "https://code.getmdl.io/1.1.2/material.amber-light_green.min.css"
+            }
+            function switchThemeToGrey() {
+              link = document.getElementById("Theme")
+              link.href = "https://code.getmdl.io/1.1.2/material.blue_grey-light_green.min.css"
+            }
+            function randomSwitchTheme() {
+              var themes = ["https://code.getmdl.io/1.1.2/material.blue_grey-light_green.min.css","https://code.getmdl.io/1.1.2/material.amber-light_green.min.css","https://code.getmdl.io/1.1.2/material.deep_purple-red.min.css","https://code.getmdl.io/1.1.2/material.blue-orange.min.css","https://code.getmdl.io/1.1.2/material.green-blue.min.css","https://code.getmdl.io/1.1.2/material.deep_orange-orange.min.css","https://code.getmdl.io/1.1.2/material.indigo-green.min.css"];
+              var access = Math.floor(Math.random() * 10) % 7;
+              link = document.getElementById("Theme");
+              link.href = themes[access];
+            }
+          </script>
+          <a href="#projects" onclick="switchThemeToPurple()" class="mdl-layout__tab">Relevant Projects</a>
+          <a href="#experience" onclick="switchThemeToBlue()" class="mdl-layout__tab">Experience</a>
+          <a href="#contact" onclick="switchThemeToGrey()" class="mdl-layout__tab">Contact Me</a>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="randomSwitchTheme()">
+            <i class="material-icons" role="presentation">autorenew</i>
+            <span class="visuallyhidden">Add</span>
+          </button>
+        </div>
+      </header>
+  {% block body %} {%endblock%}
+  <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--middle-section">
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="http://web.cs.dal.ca/~ycheng/resume/resume.pdf">Download a PDF version resume as a souvenir?</a></li>
+                <br>
+                <li><a href="#">This page is based on Google MDL and redesigned by Yaxin Cheng.<br>Licensed under the Apache License, Version 2.0 (the "License")</a></li>
+              </ul>
+            </div>
+        </footer>
+      </main>
+    </div>
+    <a id="view-source" href="mailto:Yaxin.Cheng@Dal.ca?subject=Wanna talk?" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Talk to me</a>
+    <script src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+  </body>
+</html>
