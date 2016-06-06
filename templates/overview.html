@@ -28,7 +28,27 @@
 	          </section>
 		        {% endif %}
 	 {% endif %}
-	 
+	 {% if each["Type"] == 1 %}
+	 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">{{each["Title"]}}</h4>
+                {% for i in range(each["images"]|length) %}
+	                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+	                <div class="section__circle-container__circle mdl-color--primary">
+	                    <img src = {{ url_for('static', filename = each["images"][i]) }} width=65 height=65></img>
+	                 </div>
+	                  </div>
+	                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+	                <h5>{{each["subTitle"][i]}}</h5>
+	                  {{each["subDescription"][i]}}<br>
+	                  <a href={{each["buttonLink"][i]|safe}}>{{each["buttonTitle"][i]}}</a>.
+	                </div>
+                {% endfor %}
+                </div>
+                </div>
+                </section>
+               {% endif %}
 {% endfor %}
 <section class="section--footer--small-section mdl-color--grey-100 mdl-grid"></section>
 </div>
