@@ -127,6 +127,7 @@ body:not(.overview) .docs-layout .docs-layout-header.mdl-layout__header {
 }
 
 body:not(.overview) .docs-layout .docs-layout-header.mdl-layout__header {
+    background: url(header.jpg);
     box-sizing: border-box;
     height: 144px;
     background-position: 40px 32px
@@ -176,7 +177,7 @@ body:not(.overview) .docs-layout-title {
 }
 
 body:not(.overview) .docs-layout.is-small-screen .docs-layout-header {
-    background-image: none
+    background-image: url("header.jpg");
 }
 
 .docs-layout.mdl-layout.is-small-screen .docs-layout-header.mdl-layout__header {
