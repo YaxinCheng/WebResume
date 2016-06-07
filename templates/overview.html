@@ -1,16 +1,65 @@
 {% extends "base.html" %}
+{% block H %}
+ {% if Subject == "overview" %}
+  <a href="./" class="mdl-navigation__link mdl-layout__tab is-active">Overview</a>
+  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./Projects" class="mdl-navigation__link">Projects</a>
+  <a href="./Experience" class="mdl-navigation__link">Experience</a>
+  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <div class="spacer"></div>
+{% elif Subject == "education" %}
+	<a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
+  <a href="./Education" class="mdl-navigation__link mdl-layout__tab is-active">Education &amp; Skills</a>
+  <a href="./Projects" class="mdl-navigation__link">Projects</a>
+  <a href="./Experience" class="mdl-navigation__link">Experience</a>
+  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <div class="spacer"></div>
+  {% elif Subject == "projects" %}
+  <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
+  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./Projects" class="mdl-navigation__link mdl-layout__tab is-active">Projects</a>
+  <a href="./Experience" class="mdl-navigation__link">Experience</a>
+  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <div class="spacer"></div>
+  {% elif Subject == "experience" %}
+  <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
+  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./Projects" class="mdl-navigation__link ">Projects</a>
+  <a href="./Experience" class="mdl-navigation__link mdl-layout__tab is-active">Experience</a>
+  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <div class="spacer"></div>
+  {% elif Subject == "contact" %}
+  <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
+  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./Projects" class="mdl-navigation__link ">Projects</a>
+  <a href="./Experience" class="mdl-navigation__link">Experience</a>
+  <a href="./Contact" class="mdl-navigation__link mdl-layout__tab is-active">Contact Me</a>
+  <div class="spacer"></div>
+  {% endif %}
+{% endblock %}
+
 {% block body %}
 <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="overview">
-
+        <div class="mdl-navigation__link mdl-layout__tab-panel is-active" id={{Subject}}>
 {% for each in Information %}
 	{% if each["Type"] == 0 %}
-		<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+		<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp">
+      {% if each["Image"] == true %}
+        <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--white-100 mdl-color-text--white">
+              <img src="{{url_for('static', filename = each["ImageSource"])}}" width=200 height=200></img>
+            </header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+      {% endif %}
 	            <div class="mdl-card mdl-cell mdl-cell--12-col">
 	              <div class="mdl-card__supporting-text">
-	              <h4>{{each["Title"]}}</h4>
+	              <h4>{{each["Title"]|safe}}</h4>
 	              <h6>{{each["Description"]|safe}}</h6>
 	              </div>
+	              {% if each["BottomAction"] == true %}
+	                <div class="mdl-card__actions">
+	              <a class="mdl-button" href="{{each["BottomFunction"]}}">{{each["BottomActionName"]}}</a>
+	              </div>
+              {% endif %}
 	            </div>
 	            {% if each["MoreButton"] == true %}
 	            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
@@ -25,11 +74,12 @@
 		            	{% endif %}
 		            {% endfor %}
 		            </ul>
+		         {% endif %}
 	          </section>
-		        {% endif %}
+		        
 	 {% endif %}
 	 {% if each["Type"] == 1 %}
-	 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+	 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
                 <h4 class="mdl-cell mdl-cell--12-col">{{each["Title"]}}</h4>
@@ -41,11 +91,16 @@
 	                  </div>
 	                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
 	                <h5>{{each["subTitle"][i]}}</h5>
-	                  {{each["subDescription"][i]}}<br>
-	                  <a href={{each["buttonLink"][i]|safe}}>{{each["buttonTitle"][i]}}</a>.
+	                  {{each["subDescription"][i]|safe}}<br>
+	                  <a href={{each["buttonLink"][i]|safe}}>{{each["buttonTitle"][i]}}</a>
 	                </div>
                 {% endfor %}
                 </div>
+                {% if each["BottomAction"] == true %}
+                <div class="mdl-card__actions">
+              <a class="mdl-button" href="{{each["BottomFunction"]}}">{{each["BottomActionName"]}}</a>
+              </div>
+              {% endif %}
                 </div>
                 </section>
                {% endif %}

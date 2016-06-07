@@ -36,6 +36,7 @@
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
+    <!-- <meta name="theme-color" content="#263238"> -->
 
     <link rel="shortcut icon" href="images/favicon.png">
 
@@ -46,8 +47,12 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link id="Theme" rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-green.min.css">
+
     <link rel="stylesheet" href= {{ url_for('static', filename = 'styles.css')}}>
+    <link rel="stylesheet" href={{ url_for('static', filename = 'prism-default.css')}}>
+    <link rel="stylesheet" href={{ url_for('static', filename = 'material.min.css')}}>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-green.min.css" />
+    <link rel="stylesheet" href={{ url_for('static', filename = 'main.css')}}>
     <style>
     #view-source {
       position: fixed;
@@ -60,61 +65,29 @@
     }
     </style>
   </head>
+  
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+
+    <!-- HERE -->
+  <div class="docs-layout mdl-layout mdl-js-layout">
+    <header class="docs-layout-header mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h4>Yaxin Cheng</h4><br>
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-          <h3>Yaxin Cheng</h3><br>
         </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        <h6>"Computer science is no more about computers than astronomy is about telescope" -- Edsger Dijkstra</h6><br>
-        </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-          <a href="#overview" onclick="switchThemeToIndigo()" class="mdl-layout__tab is-active">Overview</a>
-          <a href="#education" onclick="switchThemeToGreen()" class="mdl-layout__tab">Education &amp; Skills</a>
-          <script>
-            function switchThemeToIndigo() {
-              link = document.getElementById("Theme")
-              link.href = "https://code.getmdl.io/1.1.2/material.indigo-green.min.css"
-            }
-            function switchThemeToGreen() {
-              link = document.getElementById("Theme")
-              link.href = "https://code.getmdl.io/1.1.3/material.teal-blue.min.css"
-            }
-            function switchThemeToBlue() {
-              link = document.getElementById("Theme")
-              link.href = "https://code.getmdl.io/1.1.2/material.blue-orange.min.css"
-            }
-            function switchThemeToPurple() {
-              link = document.getElementById("Theme")
-              link.href = "https://code.getmdl.io/1.1.2/material.deep_purple-red.min.css"
-            }
-            function switchThemeToAmber() {
-              link = document.getElementById("Theme")
-              link.href = "https://code.getmdl.io/1.1.2/material.amber-light_green.min.css"
-            }
-            function switchThemeToGrey() {
-              link = document.getElementById("Theme")
-              link.href = "https://code.getmdl.io/1.1.2/material.blue_grey-light_green.min.css"
-            }
-            function randomSwitchTheme() {
-              var themes = ["https://code.getmdl.io/1.1.2/material.blue_grey-light_green.min.css","https://code.getmdl.io/1.1.2/material.amber-light_green.min.css","https://code.getmdl.io/1.1.2/material.deep_purple-red.min.css","https://code.getmdl.io/1.1.2/material.blue-orange.min.css","https://code.getmdl.io/1.1.2/material.green-blue.min.css","https://code.getmdl.io/1.1.2/material.deep_orange-orange.min.css","https://code.getmdl.io/1.1.2/material.indigo-green.min.css"];
-              var access = Math.floor(Math.random() * 10) % 7;
-              link = document.getElementById("Theme");
-              link.href = themes[access];
-            }
-          </script>
-          <a href="#projects" onclick="switchThemeToPurple()" class="mdl-layout__tab">Relevant Projects</a>
-          <a href="#experience" onclick="switchThemeToBlue()" class="mdl-layout__tab">Experience</a>
-          <a href="#contact" onclick="switchThemeToGrey()" class="mdl-layout__tab">Contact Me</a>
-          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="randomSwitchTheme()">
-            <i class="material-icons" role="presentation">autorenew</i>
-            <span class="visuallyhidden">Add</span>
-          </button>
-        </div>
-      </header>
+        
+      <div class="docs-navigation__container">
+        <nav class="docs-navigation mdl-navigation">
+        {% block H %}
+          {% endblock %}
+        </nav>
+      </div>
+      <i class="material-icons scrollindicator scrollindicator--right">&#xE315;</i>
+      <i class="material-icons scrollindicator scrollindicator--left">&#xE314;</i>
+    <!-- </header> -->
+    </header>
   {% block body %} {%endblock%}
   <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--middle-section">
@@ -131,5 +104,5 @@
     </div>
     <a id="view-source" href="mailto:Yaxin.Cheng@Dal.ca?subject=Wanna talk?" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Talk to me</a>
     <script src="https://code.getmdl.io/1.1.2/material.min.js"></script>
-  </body>
+    </body>
 </html>
