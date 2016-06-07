@@ -21,7 +21,7 @@ def index():
 					"subTitle": ["Email", "LinkedIn", "GitHub"],
 					"subDescription": ["Yaxin.Cheng@Dal.ca", "Yaxin Cheng", "Yaxin Cheng(WatashiJ)"],
 					"buttonTitle": ["Email Me", "Go Check", "Have a look"],
-					"buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=Job Opportunity", "https://ca.linkedin.com/in/yaxincheng", "https://github.com/WatashiJ"],
+					"buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=JobOpportunity", "https://ca.linkedin.com/in/yaxincheng", "https://github.com/WatashiJ"],
 					"BottomAction": True,
 					"BottomActionName": "Find More Connections",
 					"BottomFunction": "/Contact"}
@@ -150,7 +150,7 @@ def contact():
 	["images/email.png", "images/phone.png", "images/git.png", "images/in.png"], "subTitle":
 	["Email", "Phone", "GitHub", "LinkedIn"], "subDescription": ["Yaxin.Cheng@Dal.ca", "(902)877-9707","Yaxin Cheng (WatashiJ)", "Yaxin Cheng on LinkedIn"],
 	"buttonTitle": ["Email me", "", "Have a look", "Go check"],
-	"buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=Job Opportunity","","https://github.com/WatashiJ", "https://ca.linkedin.com/in/yaxincheng"] }
+	"buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=JobOpportunity","","https://github.com/WatashiJ", "https://ca.linkedin.com/in/yaxincheng"] }
 	return render_template('overview.html', Subject = "contact", Information = [Contact])
 
 if __name__ == "__main__":
