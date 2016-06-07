@@ -125,7 +125,7 @@ def projects():
                 ✪ Programmed a Python web crawler which downloads the information of house pricing from the Internet<br>
                 ✪ Consulted and pair programmed with the team member who was working on the web part to connect the backend (database) 
                 to the frontend (Web Interface)"""}
-	return render_template('overview.html', Subject = "projects", Information = [ApartmentSearch, iMoney, elm])
+	return render_template('overview.html', Subject = "projects", Information = [elm, iMoney, ApartmentSearch])
 
 @app.route('/Experience')
 def experience():
@@ -135,7 +135,7 @@ def experience():
                 ✪ Arranged meeting rooms during the orientation day to provide new students a welcoming space<br>
                 ✪ Conducted campus orientation as well as answered student questions in order to introduce the campus life to the students""",
                 "Image": False}
-	Buskers = {"Type": 0, "Title": """Halifax Buskerss' Festival<h5><font color="grey">Stage Manager and Program Seller(Oct 2015)</font></h5>""",
+	Buskers = {"Type": 0, "Title": """Halifax Buskers' Festival<h5><font color="grey">Stage Manager and Program Seller(Oct 2015)</font></h5>""",
 				"Description": """✪ Ensured the artists' performances by keeping stage clear and helping to install their equipment<br>
                 ✪ Balanced the budget for the organizer by selling the programs<br>
                 ✪ Promoted the festival by introducing features and highlights<br>
