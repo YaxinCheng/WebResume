@@ -6,10 +6,8 @@ app = Flask(__name__, static_folder="static")
 @app.route('/')
 def index():
     coop = {"Type": 0, "Title": "Co-op Status", "Description":
-            """✪ Hired by Green Power Labs for a 4-month Co-op position<br>
-                ✪ Have completed four of eight academic terms in May 2016<br>
-                ✪ Will be available for the second Co-op term in January 2017<br>
-                ✪ Will have finished one Co-op term and five of eight academic terms""",
+            """✪ Will be available for the second Co-op term in January 2017<br>
+                ✪ Will have finished one Co-op term and five of eight academic terms in January 2017""",
             "Image": False,
             "MoreButton": False,
             "BottomAction": True,
@@ -28,9 +26,9 @@ def index():
                    "BottomFunction": "/Contact"}
     introduction = {"Type": 0, "Title": "Introduction", "Description":
                     """✪ My Name: <a>Yaxin Cheng</a><br>
-                ✪ An international student taking Computer Science at Dalhousie University<br>
-                ✪ Habit: Coding &amp; Game of Thrones<br>
-                ✪ Originally from Sichuan, a south-western province in China. Just remember, we have panda bears and we love spicy food<br>
+                ✪ A COOL international student in Computer Science Faculty at Dalhousie University<br>
+                ✪ Habit: Coding &amp; Shows(Game of Thrones recently)<br>
+                ✪ Originally from Sichuan, China. You may not know the province, but you must know it's where panda bears are from<br>
                 ✪ Recent update: I got a job at <a href="http://www.greenpowerlabs.com">Green Power Labs</a><br>
                 ✪ Don't ask me if I wanna stay in Canada after graduation. I do""",
                     "Image": False,
