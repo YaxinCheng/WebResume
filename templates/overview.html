@@ -35,6 +35,13 @@
   <a href="./Experience" class="mdl-navigation__link">Experience</a>
   <a href="./Contact" class="mdl-navigation__link mdl-layout__tab is-active">Contact Me</a>
   <div class="spacer"></div>
+  {% else %}
+  <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
+  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./Projects" class="mdl-navigation__link ">Projects</a>
+  <a href="./Experience" class="mdl-navigation__link">Experience</a>
+  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <div class="spacer"></div>
   {% endif %}
 {% endblock %}
 

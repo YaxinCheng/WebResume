@@ -173,5 +173,19 @@ def contact():
                "buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=JobOpportunity", "", "https://github.com/WatashiJ", "https://ca.linkedin.com/in/yaxincheng"]}
     return render_template('overview.html', Subject="contact", Information=[Contact])
 
+@app.errorhandler(404)
+def page_not_found(e):
+    Error = {"Type": 1, "Title": "404 Page Not Found", "images": ["images/4.png","images/0.png","images/4.png"], "subDescription":
+            ["Page", "Not", "Found"], "subTitle": ["","",""],
+            "buttonLink": ["","",""],"buttonTitle": ["","",""]}
+    return render_template('overview.html', Information = [Error]), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    Error = {"Type": 1, "Title": "500 Internal Server Error", "images": ["images/5.png","images/0.png","images/0.png"], "subDescription":
+            ["Internal", "Server", "Error"],"subTitle": ["","",""],
+            "buttonLink": ["","",""],"buttonTitle": ["","",""]}
+    return render_template('overview.html', Information = [Error]), 500
+
 if __name__ == "__main__":
     app.run()
