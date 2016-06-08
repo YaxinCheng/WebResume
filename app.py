@@ -28,7 +28,7 @@ def index():
                     """✪ My Name: <a>Yaxin Cheng</a><br>
                 ✪ A COOL international student in Computer Science Faculty at Dalhousie University<br>
                 ✪ Habit: Coding &amp; Shows(Game of Thrones recently)<br>
-                ✪ Originally from Sichuan, China. You may not know the province, but you must know it's where panda bears are from<br>
+                ✪ Originally from Sichuan, China. You may not know the province, but you must know it's where panda bears from<br>
                 ✪ Recent update: I got a job at <a href="http://www.greenpowerlabs.com">Green Power Labs</a><br>
                 ✪ Don't ask me if I wanna stay in Canada after graduation. I do""",
                     "Image": False,
