@@ -97,12 +97,13 @@ def education():
 def projects():
     courseSpider = {"Type": 0, "Title": """Course Spider(2016)<h5><font color="grey">Personal Project</font></h5>""",
                     "Description": """✪ Started from the desire to build a course selecting App, web crawler may be the most convinient way to get data<br>
-                ✪ Analyzed the web API of Dalhousie University, and built a simple demo to parse all information<br>
-                ✪ Implemented a Python package: BeautifulSoup, to parse the html file returned by the server<br>
+                ✪ Analyzed the web API of Dalhousie University, and built a simple demo to gather all information<br>
+                ✪ Separate the html file returned from the server to different blocks by regular expressions<br>
+                ✪ Implemented a Python package: BeautifulSoup, to parse the each block for well formatted information<br>
                 ✪ Built the DalCourse class to store processed data, and encapsulated crawler functions to CourseSpider class<br>
                 ✪ Installed Flask micro-framework, and built RESTful APIs to open the crawler to other users<br>
                 ✪ Host the program on Heroku (https://course-spider.herokuapp.com), and wrote documentations""",
-                    "Image": True, "ImageSource": "images/spider.png", "BottomAction": True, "BottomActionName": "Give it a try",
+                    "Image": True, "ImageSource": "images/spider.png", "BottomAction": True, "BottomActionName": "Check on github",
                     "BottomFunction": "https://github.com/WatashiJ/Course-Spider"}
     elm = {"Type": 0, "Title": """Elm Library(2016)<h5><font color="grey">Group Project</font></h5>""",
                "Description": """✪ Analyzed the requirements and established 17 user stories to negotiate with the client<br>
@@ -140,9 +141,9 @@ def projects():
 
 @app.route('/Experience')
 def experience():
-    GPL = {"Type": 0, "Title": """Green Power Labs.Inc<h5><font color="grey">Junior Programmer, Buildings(May 2016 - Aug 2016)</font>""",
+    GPL = {"Type": 0, "Title": """Green Power Labs Inc.<h5><font color="grey">Junior Programmer, Buildings(May 2016 - Aug 2016)</font>""",
             "Description": """✪ Read and analyzed APIs from building control companies<br>
-            ✪ Built adapters to bridging from Predictive Building Control(PBC) system to buildings by Java based on the APIs<br>
+            ✪ Built adapters to bridge from Predictive Building Control(PBC) system to buildings by Java based on the APIs<br>
             ✪ Ensured the communications between PBC and buildings by doing regular maintenance<br>
             ✪ Wrote documents and records about new functions added and modifications made during development<br>
             ✪ Doing researches about dashboard interface, and may involve in the development of a dashboard""",
