@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 from shutil import copyfile
 import subprocess
 copyfile("""/Users/Cheng/Documents/Dal/Fall 2015/Co-op/Résumé.pdf""", """/Users/Cheng/Developer/Python/Resume/static/resume.pdf""")
