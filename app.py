@@ -54,8 +54,8 @@ def education():
     ML = {"Type": 0, "Title": "Machine Learning", "Description": """✪ This is the area I am still digging, and taking a course for more knowledge about it<br>
                 ✪ Some familiarity with supervised and unsupervised learning<br>
                 ✪ Understand map-reduce and photo OCR algorithm""", "Image": True, "ImageSource": "images/ml.png"}
-    DB = {"Type": 0, "Title": "Database", "Description": """✪ MySQL & SQLite & CoreData & Firebase DB == SQL + NoSQL<br>
-	✪ Database building and manipulations at iOS and Flask Python<br> 
+    DB = {"Type": 0, "Title": "Database", "Description": """✪ MongoDB & MySQL & SQLite == SQL + NoSQL<br>
+	✪ Database building and manipulations by Flask Python<br> 
                 ✪ Familiar with the relational algebra""", "Image": True, "ImageSource": "images/mysql.png"}
     C = {"Type": 0, "Title": "C", "Description": """✪ Familiar with C grammars and experienced with C programming<br>
                 ✪ Proficient in memory allocation and pointer manipulations""", "Image": True, "ImageSource": "images/C.png",
