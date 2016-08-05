@@ -95,6 +95,17 @@ def education():
 
 @app.route('/Projects')
 def projects():
+    NewsHub = {'Type': 0, 'Title': '''NewsHub(2016)<h5><font color="grey">Personal Project</font></h5>''',
+                'Description': '''✪ Designed efficient regex to crawl news from MetroNews and Chronicle<br>
+                                  ✪ Create a crawler by Python, and built Restful API with Flask<br>
+                                  ✪ Set up MongoDB from mLab to save news caches, and largely increased the request speed<br>
+                                  ✪ Added image compression functionality for generating thumbnails to reach a better user experience<br>
+                                  ✪ Encrypted authorization by hashing password with salts which ensures the app security<br>
+                                  ✪ Designed iOS app with Swift which makes the app concise and fast<br>
+                                  ✪ Fully Protocol-Oriented programming and value types largly applied to optimize the speed<br>
+                                  ✪ GCD (Grand-Central-Dispatch) is commonly used to keep the UI smooth<br>
+                                  ✪ Popular complexity reduction UI design focuses users to news contents''',
+                  'Image': True, 'ImageSource': 'images/NewsHub.png', "BottomAction": True, 'BottomActionName': 'Check on github', 'BottomFunction': 'https://github.com/YaxinCheng/NewsHub-iOS'}
     courseSpider = {"Type": 0, "Title": """Course Spider(2016)<h5><font color="grey">Personal Project</font></h5>""",
                     "Description": """✪ Started from the desire to build a course selecting App, web crawler may be the most convinient way to get data<br>
                 ✪ Analyzed the web API of Dalhousie University, and built a simple demo to gather all information<br>
@@ -136,7 +147,7 @@ def projects():
                 ✪ Programmed a Python web crawler which downloads the information of house pricing from the Internet<br>
                 ✪ Consulted and pair programmed with the team member who was working on the web part to connect the backend (database) 
                 to the frontend (Web Interface)"""}
-    return render_template('overview.html', Subject="projects", Information=[courseSpider, elm, iMoney, ApartmentSearch])
+    return render_template('overview.html', Subject="projects", Information=[NewsHub, courseSpider, elm, iMoney, ApartmentSearch])
 
 
 @app.route('/Experience')
