@@ -4,6 +4,8 @@ app = Flask(__name__, static_folder="static")
 
 
 @app.route('/')
+@app.route('/Overview')
+@app.route('/overview')
 def index():
     coop = {"Type": 0, "Title": "Co-op Status", "Description":
             """✪ Will be available for the second Co-op term in January 2017<br>
@@ -39,6 +41,7 @@ def index():
 
 
 @app.route('/Education')
+@app.route('/education')
 def education():
     NonTech = {"Type": 0, "Title": "Non-Technical Skills", "Description": """✪ Communication: Fluently and properly 
 				communicate with people in both written and oral English.<br>
@@ -94,16 +97,17 @@ def education():
 
 
 @app.route('/Projects')
+@app.route('/projects')
 def projects():
     NewsHub = {'Type': 0, 'Title': '''NewsHub(2016)<h5><font color="grey">Personal Project</font></h5>''',
-                'Description': '''✪ Designed efficient regex to crawl news from MetroNews and Chronicle<br>
-                                  ✪ Create a crawler by Python, and built Restful API with Flask<br>
-                                  ✪ Set up MongoDB from mLab to save news caches, and largely increased the request speed<br>
-                                  ✪ Added image compression functionality for generating thumbnails to reach a better user experience<br>
-                                  ✪ Encrypted authorization by hashing password with salts which ensures the app security<br>
-                                  ✪ Designed iOS app with Swift which makes the app concise and fast<br>
-                                  ✪ Fully Protocol-Oriented programming and value types largly applied to optimize the speed<br>
-                                  ✪ GCD (Grand-Central-Dispatch) is commonly used to keep the UI smooth<br>
+                'Description': '''✪ Designed efficient regexes for news from MetroNews and Chronicle, and created crawler based on these<br>
+                                  ✪ Built restful API with Flask ensures the easy manipulations to the crawler<br>
+                                  ✪ Set up a MongoDB to persist app data, news, and user data, which largely speeded up the app<br>
+                                  ✪ Added image searching and compression functionalities for a better user experience<br>
+                                  ✪ Hashed users’ passwords with salts to increase the security level of the app<br>
+                                  ✪ Designed app based on the restful API by Swift which makes the app concise and fast<br>
+                                  ✪ Largely applied value types and Protocol-Oriented Programming soars up the app’s speed<br>
+                                  ✪ Grand-Central-Dispatch (Multithreads) ensures NewsHub runs smoothly all the time<br>
                                   ✪ Popular complexity reduction UI design focuses users to news contents''',
                   'Image': True, 'ImageSource': 'images/NewsHub.png', "BottomAction": True, 'BottomActionName': 'Check on github', 'BottomFunction': 'https://github.com/YaxinCheng/NewsHub-iOS'}
     courseSpider = {"Type": 0, "Title": """Course Spider(2016)<h5><font color="grey">Personal Project</font></h5>""",
@@ -151,6 +155,7 @@ def projects():
 
 
 @app.route('/Experience')
+@app.route('/experience')
 def experience():
     GPL = {"Type": 0, "Title": """Green Power Labs Inc.<h5><font color="grey">Junior Programmer, Buildings(May 2016 - Aug 2016)</font>""",
             "Description": """✪ Read and analyzed APIs from building control companies<br>
@@ -177,6 +182,7 @@ def experience():
 
 
 @app.route('/Contact')
+@app.route('/contact')
 def contact():
     Contact = {"Type": 1, "Title": "Contact Information", "images":
                ["images/email.png", "images/phone.png", "images/git.png", "images/in.png"], "subTitle":
