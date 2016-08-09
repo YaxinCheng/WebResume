@@ -1,12 +1,29 @@
-from flask import Flask, render_template
-
+import os
+from flask import Flask, render_template, request
+from flask_pymongo import PyMongo
 app = Flask(__name__, static_folder="static")
+import pytz
+from datetime import datetime
 
+MONGO_URI = os.environ.get('MONGO_URL')
+if not MONGO_URI:
+  MONGO_URI = '***REMOVED***'
+
+app.config['MONGO_URI'] = MONGO_URI
+mongo = PyMongo(app)
+zone = pytz.timezone('America/Halifax')
 
 @app.route('/')
 @app.route('/Overview')
 @app.route('/overview')
 def index():
+    ip = request.remote_addr
+    time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
+    mongo.db.statistics.update({'_id': 'overview'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
+    if mongo.db.overview.find({'_id': ip}).count() > 0:
+      mongo.db.overview.update({'_id': ip}, {'$set': {'last visit': time}})
+    else:
+      mongo.db.overview.insert({'_id': ip, 'last visit': time})
     coop = {"Type": 0, "Title": "Co-op Status", "Description":
             """✪ Will be available for the second Co-op term in January 2017<br>
                 ✪ Will have finished one Co-op term and five of eight academic terms in January 2017""",
@@ -43,6 +60,13 @@ def index():
 @app.route('/Education')
 @app.route('/education')
 def education():
+    ip = request.remote_addr
+    time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
+    mongo.db.statistics.update({'_id': 'education'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
+    if mongo.db.education.find({'_id': ip}).count() > 0:
+      mongo.db.education.update({'_id': ip}, {'$set': {'last visit': time}})
+    else:
+      mongo.db.education.insert({'_id': ip, 'last visit': time})
     NonTech = {"Type": 0, "Title": "Non-Technical Skills", "Description": """✪ Communication: Fluently and properly 
 				communicate with people in both written and oral English.<br>
                 ✪ Self-motivated: Learned iOS, Python, and Machine Learning independently<br>
@@ -99,6 +123,13 @@ def education():
 @app.route('/Projects')
 @app.route('/projects')
 def projects():
+    ip = request.remote_addr
+    time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
+    mongo.db.statistics.update({'_id': 'projects'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
+    if mongo.db.projects.find({'_id': ip}).count() > 0:
+      mongo.db.projects.update({'_id': ip}, {'$set': {'last visit': time}})
+    else:
+      mongo.db.projects.insert({'_id': ip, 'last visit': time})
     NewsHub = {'Type': 0, 'Title': '''NewsHub(2016)<h5><font color="grey">Personal Project</font></h5>''',
                 'Description': '''✪ Designed efficient regexes for news from MetroNews and Chronicle, and created crawler based on these<br>
                                   ✪ Built restful API with Flask ensures the easy manipulations to the crawler<br>
@@ -157,6 +188,13 @@ def projects():
 @app.route('/Experience')
 @app.route('/experience')
 def experience():
+    ip = request.remote_addr
+    time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
+    mongo.db.statistics.update({'_id': 'experience'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
+    if mongo.db.experience.find({'_id': ip}).count() > 0:
+      mongo.db.experience.update({'_id': ip}, {'$set': {'last visit': time}})
+    else:
+      mongo.db.experience.insert({'_id': ip, 'last visit': time})
     GPL = {"Type": 0, "Title": """Green Power Labs Inc.<h5><font color="grey">Junior Programmer, Buildings(May 2016 - Aug 2016)</font>""",
             "Description": """✪ Read and analyzed APIs from building control companies<br>
             ✪ Built adapters to bridge from Predictive Building Control(PBC) system to buildings by Java based on the APIs<br>
@@ -184,12 +222,23 @@ def experience():
 @app.route('/Contact')
 @app.route('/contact')
 def contact():
+    ip = request.remote_addr
+    time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
+    mongo.db.statistics.update({'_id': 'contact'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
+    if mongo.db.contact.find({'_id': ip}).count() > 0:
+      mongo.db.contact.update({'_id': ip}, {'$set': {'last visit': time}})
+    else:
+      mongo.db.contact.insert({'_id': ip, 'last visit': time})
     Contact = {"Type": 1, "Title": "Contact Information", "images":
                ["images/email.png", "images/phone.png", "images/git.png", "images/in.png"], "subTitle":
                ["Email", "Phone", "GitHub", "LinkedIn"], "subDescription": ["Yaxin.Cheng@Dal.ca", "(902)877-9707", "Yaxin Cheng (YaxinCheng)", "Yaxin Cheng on LinkedIn"],
                "buttonTitle": ["Email me", "", "Have a look", "Go check"],
                "buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=JobOpportunity", "", "https://github.com/YaxinCheng", "https://ca.linkedin.com/in/yaxincheng"]}
     return render_template('overview.html', Subject="contact", Information=[Contact])
+
+@app.route('/keepAlive')
+def alive():
+  return {'keep', 'going'}
 
 @app.errorhandler(404)
 def page_not_found(e):
