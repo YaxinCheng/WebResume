@@ -238,7 +238,10 @@ def contact():
 
 @app.route('/keepAlive')
 def alive():
-  return {'keep', 'going'}
+  INFO = {"Type": 0, 'Title': 'Keep Going', 'Description': '''Can't believe that you found this page?! You must be my crazy fan!<br>
+  Actually this page is to keep the website awake due to the sleep mode of heroku. So there you go.<br>
+  Email me from the right bottom corner if you have something to talk. Have a nice day''', 'Image': False}
+  return render_template('overview.html', Subject="contact", Information=[INFO])
 
 @app.errorhandler(404)
 def page_not_found(e):
