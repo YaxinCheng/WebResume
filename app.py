@@ -196,7 +196,7 @@ def experience():
     else:
       mongo.db.experience.insert({'_id': ip, 'last visit': time})
     GPL = {"Type": 0, "Title": """Green Power Labs Inc.<h5><font color="grey">Junior Programmer, Buildings(May 2016 - Aug 2016)</font>""",
-            "Description": """✪ • Quickly read and studied existing documents to thoroughly understand the current system and get into work fast<br>
+            "Description": """✪ Quickly read and studied existing documents to thoroughly understand the current system and get into work fast<br>
             ✪ Built a stand alone testing app based on documents and existing system, which helps debug and test<br>
             ✪ Built a flask based backend to collect user feedbacks, which optimizes the machine learning algorithm<br>
             ✪ Designed and built a mobile iOS app to interact with user, which help enhance the user experience of PBC control software<br>
