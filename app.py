@@ -197,9 +197,10 @@ def experience():
       mongo.db.experience.insert({'_id': ip, 'last visit': time})
     GPL = {"Type": 0, "Title": """Green Power Labs Inc.<h5><font color="grey">Junior Programmer, Buildings(May 2016 - Aug 2016)</font>""",
             "Description": """✪ Quickly read and studied existing documents to thoroughly understand the current system and get into work fast<br>
-            ✪ Built a stand alone testing app based on documents and existing system, which helps debug and test<br>
-            ✪ Built a flask based backend to collect user feedbacks, which optimizes the machine learning algorithm<br>
-            ✪ Designed and built a mobile iOS app to interact with user, which help enhance the user experience of PBC control software<br>
+            ✪ Built a stand alone testing app based on documents to help debug and test<br>
+            ✪ Developed a flask based backend to collect user feedbacks, which optimizes the learning accuracy<br>
+            ✪ Thoroughly Understood the idea and importance of TDD according to working in real software industry<br>
+            ✪ Learned the importance of planning for the future before coding from practiced colleagues<br>
             ✪ Gained real team working experience by cooperating with 5 team members coherently""",
             "Image": True, "ImageSource": "images/gpl.png", "BottomAction": True, "BottomActionName": "Check GPL", 
             "BottomFunction": "http://www.greenpowerlabs.com"}
