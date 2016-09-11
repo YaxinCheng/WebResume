@@ -130,18 +130,32 @@ def projects():
       mongo.db.projects.update({'_id': ip}, {'$set': {'last visit': time}})
     else:
       mongo.db.projects.insert({'_id': ip, 'last visit': time})
+    Weather = {
+    'Type': 0,
+    'Title': '''Weather<h5><font color="grey">Personal Project(2016)</font></h5>''',
+    'Description': '''✪ Protocol-oriented design to unify objects and simplify their relations<br>
+                      ✪ Implemented <a href:"https://github.com/YaxinCheng/WeatherKit>WeatherKit</a> to load weather information easily<br>
+                      ✪ Polished weather presentation with multiple gorgeous animations by AVKit<br>
+                      ✪ Simplified cache keep by CoreData by wrapping main functions of CoreData as a protocol<br>
+                      ✪ Built a Notification driven system to largely simplify app logic<br>
+                      ✪ Presenting weather information by multiple ways by creating a Today Widget
+    ''',
+    'Image': True, 'ImageSource': 'images/Weather.png',
+    'BottomAction': True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/Weather'
+    }
     WeatherKit = {
     'Type': 0,
-    'Title': '''WeatherKit(2016)<h5><font color="grey">Personal Project</font></h5>''',
+    'Title': '''WeatherKit<h5><font color="grey">Personal Project(2016)</font></h5>''',
     'Description': '''✪ Designed with fully protocol-oriented methodology for Yahoo!Weather API<br>
                       ✪ Simple and concise API make the kit easy to use<br>
                       ✪ Fully documented with descriptions to each function<br>
                       ✪ Pure TDD (Test-Driven Development) for the development process<br>
                       ✪ Git was used for backup, and distributted with Cocoapods<br>
     ''',
-    'Image': True, 'ImageSource': 'images/WeatherKit.png', 'BottomAction': True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/WeatherKit'
+    'Image': True, 'ImageSource': 'images/WeatherKit.png', 
+    'BottomAction': True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/WeatherKit'
     }
-    NewsHub = {'Type': 0, 'Title': '''NewsHub(2016)<h5><font color="grey">Personal Project</font></h5>''',
+    NewsHub = {'Type': 0, 'Title': '''NewsHub<h5><font color="grey">Personal Project(2016)</font></h5>''',
                 'Description': '''✪ Designed efficient regexes for news from MetroNews and Chronicle, and created crawler based on these<br>
                                   ✪ Built restful API with Flask ensures the easy manipulations to the crawler<br>
                                   ✪ Set up a MongoDB to persist app data, news, and user data, which largely speeded up the app<br>
@@ -152,7 +166,7 @@ def projects():
                                   ✪ Grand-Central-Dispatch (Multithreads) ensures NewsHub runs smoothly all the time<br>
                                   ✪ Popular complexity reduction UI design focuses users to news contents''',
                   'Image': True, 'ImageSource': 'images/NewsHub.png', "BottomAction": True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/NewsHub-iOS'}
-    courseSpider = {"Type": 0, "Title": """Course Spider(2016)<h5><font color="grey">Personal Project</font></h5>""",
+    courseSpider = {"Type": 0, "Title": """Course Spider<h5><font color="grey">Personal Project(2016)</font></h5>""",
                     "Description": """✪ Started from the desire to build a course selecting App, web crawler may be the most convinient way to get data<br>
                 ✪ Analyzed the web API of Dalhousie University, and built a simple demo to gather all information<br>
                 ✪ Separate the html file returned from the server to different blocks by regular expressions<br>
@@ -162,7 +176,7 @@ def projects():
                 ✪ Host the program on Heroku (https://course-spider.herokuapp.com), and wrote documentations""",
                     "Image": True, "ImageSource": "images/spider.png", "BottomAction": True, "BottomActionName": "Check on Github",
                     "BottomFunction": "https://github.com/YaxinCheng/Course-Spider"}
-    elm = {"Type": 0, "Title": """Elm Library(2016)<h5><font color="grey">Group Project</font></h5>""",
+    elm = {"Type": 0, "Title": """Elm Library<h5><font color="grey">Group Project(2016)</font></h5>""",
                "Description": """✪ Analyzed the requirements and established 17 user stories to negotiate with the client<br>
                 ✪ Grouped the uesr stories into 3 iterations so that the final goal can be reached iteratively<br>
                 ✪ Broke tasks and assigned to each team-mate through communications<br>
@@ -173,7 +187,7 @@ def projects():
                 ✪ Refactoring code at the begining of each iteration to optimize the readability and extensibility<br>""",
                "Image": True, "ImageSource": "images/elm.png", "BottomAction": True,
                "BottomActionName": "Check on Github", "BottomFunction": "https://github.com/YaxinCheng/elmLibrary#elmlibrary"}
-    iMoney = {"Type": 0, "Title": """iMoney(2016)<h5><font color="grey">Personal Project</font></h5>""",
+    iMoney = {"Type": 0, "Title": """iMoney<h5><font color="grey">Personal Project(2016)</font></h5>""",
                   "Description": """✪ Analyzed and categorized classes by drawing UML diagrams at the beginning<br>
                 ✪ Applied open-sourced libraries to optimize the user experience<br>
                 ✪ Stored and secured users’ records by CoreData database technique<br>
@@ -184,7 +198,7 @@ def projects():
                   "Image": True, "ImageSource": "images/imoney.png", "BottomAction": True, "BottomActionName": "Check On Github",
                   "BottomFunction": "https://github.com/YaxinCheng/iMoney"}
     ApartmentSearch = {"Type": 0, "Title": """Apartment Prices Checking System for Halifax
-	(2015)<h5><font color="grey">Group Project</font></h5>""", "Description": """✪ Analyzed and divided requirements into tasks
+	<h5><font color="grey">Group Project(2015)</font></h5>""", "Description": """✪ Analyzed and divided requirements into tasks
 	 in order to establish a features list<br>
                 ✪ Utilized ER diagrams to determine the relations and framework of the program<br>
                 ✪ Assigned tasks to teammates based on their skill levels and experience, so that the whole team can
@@ -193,7 +207,7 @@ def projects():
                 ✪ Programmed a Python web crawler which downloads the information of house pricing from the Internet<br>
                 ✪ Consulted and pair programmed with the team member who was working on the web part to connect the backend (database) 
                 to the frontend (Web Interface)"""}
-    return render_template('overview.html', Subject="projects", Information=[WeatherKit, NewsHub, courseSpider, elm, iMoney, ApartmentSearch])
+    return render_template('overview.html', Subject="projects", Information=[Weather, WeatherKit, NewsHub, courseSpider, elm, iMoney, ApartmentSearch])
 
 
 @app.route('/Experience')
