@@ -130,6 +130,17 @@ def projects():
       mongo.db.projects.update({'_id': ip}, {'$set': {'last visit': time}})
     else:
       mongo.db.projects.insert({'_id': ip, 'last visit': time})
+    WeatherKit = {
+    'Type': 0,
+    'Title': '''WeatherKit(2016)<h5><font color="grey">Personal Project</font></h5>''',
+    'Description': '''✪ Designed with fully protocol-oriented methodology for Yahoo!Weather API<br>
+                      ✪ Simple and concise API make the kit easy to use<br>
+                      ✪ Fully documented with descriptions to each function<br>
+                      ✪ Pure TDD (Test-Driven Development) for the development process<br>
+                      ✪ Git was used for backup, and distributted with Cocoapods<br>
+    ''',
+    'Image': True, 'ImageSource': 'images/WeatherKit.png', 'BottomAction': True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/WeatherKit'
+    }
     NewsHub = {'Type': 0, 'Title': '''NewsHub(2016)<h5><font color="grey">Personal Project</font></h5>''',
                 'Description': '''✪ Designed efficient regexes for news from MetroNews and Chronicle, and created crawler based on these<br>
                                   ✪ Built restful API with Flask ensures the easy manipulations to the crawler<br>
@@ -140,7 +151,7 @@ def projects():
                                   ✪ Largely applied value types and Protocol-Oriented Programming soars up the app’s speed<br>
                                   ✪ Grand-Central-Dispatch (Multithreads) ensures NewsHub runs smoothly all the time<br>
                                   ✪ Popular complexity reduction UI design focuses users to news contents''',
-                  'Image': True, 'ImageSource': 'images/NewsHub.png', "BottomAction": True, 'BottomActionName': 'Check on github', 'BottomFunction': 'https://github.com/YaxinCheng/NewsHub-iOS'}
+                  'Image': True, 'ImageSource': 'images/NewsHub.png', "BottomAction": True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/NewsHub-iOS'}
     courseSpider = {"Type": 0, "Title": """Course Spider(2016)<h5><font color="grey">Personal Project</font></h5>""",
                     "Description": """✪ Started from the desire to build a course selecting App, web crawler may be the most convinient way to get data<br>
                 ✪ Analyzed the web API of Dalhousie University, and built a simple demo to gather all information<br>
@@ -149,7 +160,7 @@ def projects():
                 ✪ Built the DalCourse class to store processed data, and encapsulated crawler functions to CourseSpider class<br>
                 ✪ Installed Flask micro-framework, and built RESTful APIs to open the crawler to other users<br>
                 ✪ Host the program on Heroku (https://course-spider.herokuapp.com), and wrote documentations""",
-                    "Image": True, "ImageSource": "images/spider.png", "BottomAction": True, "BottomActionName": "Check on github",
+                    "Image": True, "ImageSource": "images/spider.png", "BottomAction": True, "BottomActionName": "Check on Github",
                     "BottomFunction": "https://github.com/YaxinCheng/Course-Spider"}
     elm = {"Type": 0, "Title": """Elm Library(2016)<h5><font color="grey">Group Project</font></h5>""",
                "Description": """✪ Analyzed the requirements and established 17 user stories to negotiate with the client<br>
@@ -161,7 +172,7 @@ def projects():
                 ✪ Applied SVN to keep the continuous integrity (Now on Github)<br>
                 ✪ Refactoring code at the begining of each iteration to optimize the readability and extensibility<br>""",
                "Image": True, "ImageSource": "images/elm.png", "BottomAction": True,
-               "BottomActionName": "Check on github", "BottomFunction": "https://github.com/YaxinCheng/elmLibrary#elmlibrary"}
+               "BottomActionName": "Check on Github", "BottomFunction": "https://github.com/YaxinCheng/elmLibrary#elmlibrary"}
     iMoney = {"Type": 0, "Title": """iMoney(2016)<h5><font color="grey">Personal Project</font></h5>""",
                   "Description": """✪ Analyzed and categorized classes by drawing UML diagrams at the beginning<br>
                 ✪ Applied open-sourced libraries to optimize the user experience<br>
@@ -182,7 +193,7 @@ def projects():
                 ✪ Programmed a Python web crawler which downloads the information of house pricing from the Internet<br>
                 ✪ Consulted and pair programmed with the team member who was working on the web part to connect the backend (database) 
                 to the frontend (Web Interface)"""}
-    return render_template('overview.html', Subject="projects", Information=[NewsHub, courseSpider, elm, iMoney, ApartmentSearch])
+    return render_template('overview.html', Subject="projects", Information=[WeatherKit, NewsHub, courseSpider, elm, iMoney, ApartmentSearch])
 
 
 @app.route('/Experience')
