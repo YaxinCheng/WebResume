@@ -140,7 +140,7 @@ def projects():
                       ✪ Built a Notification driven system to largely simplify app logic<br>
                       ✪ Presenting weather information by multiple ways by creating a Today Widget
     ''',
-    'Image': True, 'ImageSource': 'images/Weather.png',
+    'Image': True, 'ImageSource': 'images/weather.png',
     'BottomAction': True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/Weather'
     }
     WeatherKit = {
@@ -152,7 +152,7 @@ def projects():
                       ✪ Pure TDD (Test-Driven Development) for the development process<br>
                       ✪ Git was used for backup, and distributted with Cocoapods<br>
     ''',
-    'Image': True, 'ImageSource': 'images/WeatherKit.png', 
+    'Image': True, 'ImageSource': 'images/weatherkit.png', 
     'BottomAction': True, 'BottomActionName': 'Check on Github', 'BottomFunction': 'https://github.com/YaxinCheng/WeatherKit'
     }
     NewsHub = {'Type': 0, 'Title': '''NewsHub<h5><font color="grey">Personal Project(2016)</font></h5>''',
