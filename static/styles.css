@@ -88,7 +88,7 @@ html, body {
   color: inherit;
 }
 .mdl-demo .mdl-card__actions a {
-  color: #00BCD4;
+  color: rgba(83, 109, 254, 1);
   margin: 0;
 }
 .mdl-demo .mdl-card__actions a:hover,

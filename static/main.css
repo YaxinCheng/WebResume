@@ -130,7 +130,7 @@ body:not(.overview) .docs-layout .docs-layout-header.mdl-layout__header {
     background: url(header.jpg);
     box-sizing: border-box;
     height: 144px;
-    background-position: 40px 32px
+    background-position: 0px 0px
 }
 
 body:not(.overview) .docs-layout-title {
