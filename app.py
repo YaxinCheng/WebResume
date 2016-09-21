@@ -258,7 +258,7 @@ def contact():
       mongo.db.contact.insert({'_id': ip, 'last visit': time})
     Contact = {"Type": 1, "Title": "Contact Information", "images":
                ["images/email.png", "images/phone.png", "images/git.png", "images/in.png"], "subTitle":
-               ["Email", "Phone", "GitHub", "LinkedIn"], "subDescription": ["Yaxin.Cheng@Dal.ca", "(902)877-9707", "Yaxin Cheng (YaxinCheng)", "Yaxin Cheng on LinkedIn"],
+               ["Email", "Phone", "GitHub", "LinkedIn"], "subDescription": ["Yaxin.Cheng@Dal.ca", "(902)877-9707", "Yaxin Cheng", "Yaxin Cheng on LinkedIn"],
                "buttonTitle": ["Email me", "", "Have a look", "Go check"],
                "buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=JobOpportunity", "", "https://github.com/YaxinCheng", "https://ca.linkedin.com/in/yaxincheng"]}
     return render_template('overview.html', Subject="contact", Information=[Contact])
