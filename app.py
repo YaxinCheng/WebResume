@@ -37,7 +37,7 @@ def index():
                    "Title": "Contact Information",
                    "images": ["images/email.png", "images/in.png", "images/git.png"],
                    "subTitle": ["Email", "LinkedIn", "GitHub"],
-                   "subDescription": ["Yaxin.Cheng@Dal.ca", "Yaxin Cheng", "Yaxin Cheng(YaxinCheng)"],
+                   "subDescription": ["Yaxin.Cheng@Dal.ca", "Yaxin Cheng", "Yaxin Cheng"],
                    "buttonTitle": ["Email Me", "Go Check", "Have a look"],
                    "buttonLink": ["mailto:Yaxin.Cheng@Dal.ca?subject=JobOpportunity", "https://ca.linkedin.com/in/yaxincheng", "https://github.com/YaxinCheng"],
                    "BottomAction": True,
