@@ -17,7 +17,8 @@ zone = pytz.timezone('America/Halifax')
 @app.route('/Overview')
 @app.route('/overview')
 def index():
-    ip = request.environ['REMOTE_ADDR']
+    # ip = request.environ['REMOTE_ADDR']
+    ip = request.access_route[-1] if len(request.access_route) > 1 else request.access_route[0]
     time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
     mongo.db.statistics.update({'_id': 'overview'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
     if mongo.db.overview.find({'_id': ip}).count() > 0:
