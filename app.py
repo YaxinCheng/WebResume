@@ -17,7 +17,7 @@ zone = pytz.timezone('America/Halifax')
 @app.route('/Overview')
 @app.route('/overview')
 def index():
-    ip = request.remote_addr
+    ip = request.environ['REMOTE_ADDR']
     time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
     mongo.db.statistics.update({'_id': 'overview'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
     if mongo.db.overview.find({'_id': ip}).count() > 0:
@@ -61,7 +61,7 @@ def index():
 @app.route('/Education')
 @app.route('/education')
 def education():
-    ip = request.remote_addr
+    ip = request.environ['REMOTE_ADDR']
     time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
     mongo.db.statistics.update({'_id': 'education'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
     if mongo.db.education.find({'_id': ip}).count() > 0:
@@ -124,7 +124,7 @@ def education():
 @app.route('/Projects')
 @app.route('/projects')
 def projects():
-    ip = request.remote_addr
+    ip = request.environ['REMOTE_ADDR']
     time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
     mongo.db.statistics.update({'_id': 'projects'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
     if mongo.db.projects.find({'_id': ip}).count() > 0:
@@ -214,7 +214,7 @@ def projects():
 @app.route('/Experience')
 @app.route('/experience')
 def experience():
-    ip = request.remote_addr
+    ip = request.environ['REMOTE_ADDR']
     time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
     mongo.db.statistics.update({'_id': 'experience'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
     if mongo.db.experience.find({'_id': ip}).count() > 0:
@@ -249,7 +249,7 @@ def experience():
 @app.route('/Contact')
 @app.route('/contact')
 def contact():
-    ip = request.remote_addr
+    ip = request.environ['REMOTE_ADDR']
     time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
     mongo.db.statistics.update({'_id': 'contact'}, {'$set': {'last visit': time, 'last visitor': ip}, '$inc': {'count': 1}})
     if mongo.db.contact.find({'_id': ip}).count() > 0:
