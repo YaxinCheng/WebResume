@@ -222,7 +222,7 @@ def experience():
     else:
       mongo.db.experience.insert({'_id': ip, 'last visit': time})
     GPL = {"Type": 0, "Title": """Green Power Labs Inc.<h5><font color="grey">Junior Programmer, Buildings(May 2016 - Aug 2016)</font>""",
-            "Description": """✶ Quickly read and studied existing documents to thoroughly understand the current system and get into work fast<br>
+            "Description": """✶ Quickly studied existing documents to thoroughly understand the current system and get into work<br>
             ✶ Largely simplified the test and debug process by building a python stand alone app with existing documents<br>
             ✶ Developed a flask based backend to collect user feedbacks, which optimizes the learning accuracy<br>
             ✶ Thoroughly Understood the idea and importance of TDD according to working in real software industry<br>
