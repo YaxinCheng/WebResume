@@ -20,7 +20,6 @@ def getInfo(ip):
   info.pop('as', None)
   info.pop('countryCode', None)
   info.pop('isp', None)
-  info.pop('query', None)
   info.pop('region', None)
   info.pop('status', None)
   return info
@@ -37,6 +36,7 @@ def index():
     if mongo.db.overview.find({'_id': ip}).count() > 0:
       mongo.db.overview.update({'_id': ip}, {'$set': {'last visit': time}})
     else:
+      info.pop('query', None)
       ipInfo['_id'] = ip
       mongo.db.overview.insert(ipInfo)
     coop = {"Type": 0, "Title": "Co-op Status", "Description":
