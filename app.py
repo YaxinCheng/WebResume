@@ -15,8 +15,14 @@ mongo = PyMongo(app)
 zone = pytz.timezone('America/Halifax')
 
 def getInfo(ip):
-  url = 'https://ipinfo.io/' + str(ip) + '/json'
+  url = 'http://ip-api.com/json/' + str(ip)
   info = requests.get(url).json()
+  info.pop('as', None)
+  info.pop('countryCode', None)
+  info.pop('isp', None)
+  info.pop('query', None)
+  info.pop('region', None)
+  info.pop('status', None)
   return info
 
 @app.route('/')
