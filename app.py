@@ -78,7 +78,7 @@ def projects():
         ipInfo.pop('query', None)
         ipInfo['_id'] = ip
         mongo.db.projects.insert(ipInfo)
-    info = mongo.db.projectsData.find({}).sort([("order", 1)])
+    info = mongo.db.projectsData.find({}).sort([("order", -1)])
     return render_template('overview.html', Subject="projects", Information=info)
 
 
@@ -97,7 +97,7 @@ def experience():
         ipInfo.pop('query', None)
         ipInfo['_id'] = ip
         mongo.db.experience.insert(ipInfo)
-    info = mongo.db.experienceData.find({}).sort([("order", 1)])
+    info = mongo.db.experienceData.find({}).sort([("order", -1)])
     return render_template('overview.html', Subject="experience", Information=info)
 
 
