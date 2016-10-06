@@ -60,7 +60,7 @@ def education():
         ipInfo['_id'] = ip
         mongo.db.education.insert(ipInfo)
     info = mongo.db.educationData.find({}).sort([("order", 1)])
-    return render_template('overview.html', Subject="education", Information=[general, iOS, Python, Java, C, DB, ML, Other, NonTech])
+    return render_template('overview.html', Subject="education", Information=info)
 
 
 @app.route('/Projects')
