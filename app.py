@@ -24,22 +24,30 @@ def getInfo(ip):
   info.pop('status', None)
   return info
 
+def getIP():
+  return request.access_route[-1] if len(request.access_route) > 1 else request.access_route[0]
+
+def keepRecordInDB(field):
+  ip = getIP()
+  if not ip == "127.0.0.1":
+    time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
+    ipInfo = getInfo(ip)
+    ipInfo['last visit'] = time
+    mongo.db.statistics.update({'_id': field}, {'$set': ipInfo, '$inc': {'count': 1}})
+    documentsList = {'overview': mongo.db.overview, 'education': mongo.db.education, 'projects': mongo.db.projects, 'experience': mongo.db.experience, 'contact': mongo.db.contact}
+    document = documentsList[field]
+    if document.find({'_id': ip}).count() > 0:
+      document.update({'_id': ip}, {'$set': {'last visit': time}})
+    else:
+      ipInfo.pop('query', None)
+      ipInfo['_id'] = ip
+      document.insert(ipInfo)
+
 @app.route('/')
 @app.route('/Overview')
 @app.route('/overview')
 def index():
-    ip = request.access_route[-1] if len(request.access_route) > 1 else request.access_route[0]
-    if not ip == "127.0.0.1":
-      time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
-      ipInfo = getInfo(ip)
-      ipInfo['last visit'] = time
-      mongo.db.statistics.update({'_id': 'overview'}, {'$set': ipInfo, '$inc': {'count': 1}})
-      if mongo.db.overview.find({'_id': ip}).count() > 0:
-        mongo.db.overview.update({'_id': ip}, {'$set': {'last visit': time}})
-      else:
-        ipInfo.pop('query', None)
-        ipInfo['_id'] = ip
-        mongo.db.overview.insert(ipInfo)
+    keepRecordInDB('overview')
     info = mongo.db.overviewData.find({}).sort([("order", 1)])
     return render_template('overview.html', Subject="overview",  Information=info)
 
@@ -47,18 +55,7 @@ def index():
 @app.route('/Education')
 @app.route('/education')
 def education():
-    ip = request.access_route[-1] if len(request.access_route) > 1 else request.access_route[0]
-    if not ip == "127.0.0.1":
-      time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
-      ipInfo = getInfo(ip)
-      ipInfo['last visit'] = time
-      mongo.db.statistics.update({'_id': 'education'}, {'$set': ipInfo, '$inc': {'count': 1}})
-      if mongo.db.education.find({'_id': ip}).count() > 0:
-        mongo.db.education.update({'_id': ip}, {'$set': {'last visit': time}})
-      else:
-        ipInfo.pop('query', None)
-        ipInfo['_id'] = ip
-        mongo.db.education.insert(ipInfo)
+    keepRecordInDB('education')
     info = mongo.db.educationData.find({}).sort([("order", 1)])
     return render_template('overview.html', Subject="education", Information=info)
 
@@ -66,18 +63,7 @@ def education():
 @app.route('/Projects')
 @app.route('/projects')
 def projects():
-    ip = request.access_route[-1] if len(request.access_route) > 1 else request.access_route[0]
-    if not ip == "127.0.0.1":
-      time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
-      ipInfo = getInfo(ip)
-      ipInfo['last visit'] = time
-      mongo.db.statistics.update({'_id': 'projects'}, {'$set': ipInfo, '$inc': {'count': 1}})
-      if mongo.db.projects.find({'_id': ip}).count() > 0:
-        mongo.db.projects.update({'_id': ip}, {'$set': {'last visit': time}})
-      else:
-        ipInfo.pop('query', None)
-        ipInfo['_id'] = ip
-        mongo.db.projects.insert(ipInfo)
+    keepRecordInDB('projects')
     info = mongo.db.projectsData.find({}).sort([("order", -1)])
     return render_template('overview.html', Subject="projects", Information=info)
 
@@ -85,18 +71,7 @@ def projects():
 @app.route('/Experience')
 @app.route('/experience')
 def experience():
-    ip = request.access_route[-1] if len(request.access_route) > 1 else request.access_route[0]
-    if not ip == "127.0.0.1":
-      time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
-      ipInfo = getInfo(ip)
-      ipInfo['last visit'] = time
-      mongo.db.statistics.update({'_id': 'experience'}, {'$set': ipInfo, '$inc': {'count': 1}})
-      if mongo.db.experience.find({'_id': ip}).count() > 0:
-        mongo.db.experience.update({'_id': ip}, {'$set': {'last visit': time}})
-      else:
-        ipInfo.pop('query', None)
-        ipInfo['_id'] = ip
-        mongo.db.experience.insert(ipInfo)
+    keepRecordInDB('experience')
     info = mongo.db.experienceData.find({}).sort([("order", -1)])
     return render_template('overview.html', Subject="experience", Information=info)
 
@@ -104,18 +79,7 @@ def experience():
 @app.route('/Contact')
 @app.route('/contact')
 def contact():
-    ip = request.access_route[-1] if len(request.access_route) > 1 else request.access_route[0]
-    if not ip == "127.0.0.1":
-      time = datetime.now(zone).strftime('%Y-%m-%d %H:%M:%S')
-      ipInfo = getInfo(ip)
-      ipInfo['last visit'] = time
-      mongo.db.statistics.update({'_id': 'contact'}, {'$set': ipInfo, '$inc': {'count': 1}})
-      if mongo.db.contact.find({'_id': ip}).count() > 0:
-        mongo.db.contact.update({'_id': ip}, {'$set': {'last visit': time}})
-      else:
-        ipInfo.pop('query', None)
-        ipInfo['_id'] = ip
-        mongo.db.contact.insert(ipInfo)
+    keepRecordInDB('contact')
     info = mongo.db.contactData.find({})
     return render_template('overview.html', Subject="contact", Information=info)
 
