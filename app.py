@@ -83,6 +83,12 @@ def contact():
     info = mongo.db.contactData.find({})
     return render_template('overview.html', Subject="contact", Information=info)
 
+@app.route('/visitor')
+def visitor():
+    keepRecordInDB('visitor')
+    info = mongo.db.visitorData.find({}).sort([('order', -1)])
+    return render_template('overview.html', Subject='visitor', Information=info)
+
 @app.route('/keepAlive')
 def alive():
   INFO = {"Type": 0, 'Title': 'Keep Going', 'Description': '''Can't believe that you found this page?! You must be my crazy fan!<br>

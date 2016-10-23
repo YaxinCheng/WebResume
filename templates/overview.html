@@ -110,7 +110,13 @@
               {% endif %}
                 </div>
                 </section>
-               {% endif %}
+  {% endif %}
+  {% if each["Type"] == 2 %}
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp">
+    <div class="mdl-card__actions">
+      <iframe src="{{ each["Source"] }}" width="{{ each['width'] }}" height="{{ each['height'] }}" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </section>        
+   {% endif %}
 {% endfor %}
 <section class="section--footer--small-section mdl-color--grey-100 mdl-grid"></section>
 </div>

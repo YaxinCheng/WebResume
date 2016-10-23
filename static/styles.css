@@ -82,9 +82,14 @@ html, body {
   margin-top: 0;
   margin-bottom: 20px;
 }
-.mdl-demo .mdl-card__actions {
+/*.mdl-demo .mdl-card__actions__origin {
   margin: 0;
   padding: 4px 40px;
+  color: inherit;
+}*/
+.mdl-demo .mdl-card__actions {
+  margin: 0;
+  padding: 0px 0px;
   color: inherit;
 }
 .mdl-demo .mdl-card__actions a {
