@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, request
 from flask_pymongo import PyMongo
+from flask_googlemaps import GoogleMaps
+from flask_googlemaps import Map
 app = Flask(__name__, static_folder="static")
 import pytz
 from datetime import datetime
@@ -13,6 +15,9 @@ if not MONGO_URI:
 app.config['MONGO_URI'] = MONGO_URI
 mongo = PyMongo(app)
 zone = pytz.timezone('America/Halifax')
+
+app.config['GOOGLEMAPS_KEY'] = 'AIzaSyAuVlJE1E0K3s8xpFnJXm38LtlpJ2IJ-W8'
+GoogleMaps(app)
 
 def getInfo(ip):
   url = 'http://ip-api.com/json/' + str(ip)
@@ -85,9 +90,17 @@ def contact():
 
 @app.route('/visitor')
 def visitor():
-    keepRecordInDB('visitor')
-    info = mongo.db.visitorData.find({}).sort([('order', -1)])
-    return render_template('overview.html', Subject='visitor', Information=info)
+    mapInfo = {'Type': 2}
+    coordinates = set()
+    visitorData = [mongo.db.overview.find({}), mongo.db.projects.find({}), mongo.db.education.find({}), mongo.db.experience.find({}), mongo.db.contact.find({})]
+    for eachData in visitorData:
+        for eachVisitor in eachData:
+            coordinates.add((eachVisitor['lat'], eachVisitor['lon']))
+    visitorMap = Map(identifier = 'visitors', lat = 48.1548256, lng = 11.4017529, markers = list(coordinates))
+    visitorMap.zoom = 2
+    visitorMap.style = 'height:700px;margin:0;'
+    mapInfo['map'] = visitorMap
+    return render_template('overview.html', Subject='visitor', Information=[mapInfo])
 
 @app.route('/keepAlive')
 def alive():
