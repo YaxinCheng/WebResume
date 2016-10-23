@@ -2,46 +2,60 @@
 {% block H %}
  {% if Subject == "overview" %}
   <a href="./" class="mdl-navigation__link mdl-layout__tab is-active">Overview</a>
-  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
-  <a href="./Projects" class="mdl-navigation__link">Projects</a>
-  <a href="./Experience" class="mdl-navigation__link">Experience</a>
-  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <a href="./education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./projects" class="mdl-navigation__link">Projects</a>
+  <a href="./experience" class="mdl-navigation__link">Experience</a>
+  <a href="./contact" class="mdl-navigation__link">Contact Me</a>
   <div class="spacer"></div>
+  <a href="./visitors" class="mdl-navigation__link">Visitors</a>
 {% elif Subject == "education" %}
 	<a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
-  <a href="./Education" class="mdl-navigation__link mdl-layout__tab is-active">Education &amp; Skills</a>
-  <a href="./Projects" class="mdl-navigation__link">Projects</a>
-  <a href="./Experience" class="mdl-navigation__link">Experience</a>
-  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <a href="./education" class="mdl-navigation__link mdl-layout__tab is-active">Education &amp; Skills</a>
+  <a href="./projects" class="mdl-navigation__link">Projects</a>
+  <a href="./experience" class="mdl-navigation__link">Experience</a>
+  <a href="./contact" class="mdl-navigation__link">Contact Me</a>
   <div class="spacer"></div>
+  <a href="./visitors" class="mdl-navigation__link">Visitors</a>
   {% elif Subject == "projects" %}
   <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
-  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
-  <a href="./Projects" class="mdl-navigation__link mdl-layout__tab is-active">Projects</a>
-  <a href="./Experience" class="mdl-navigation__link">Experience</a>
-  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <a href="./education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./projects" class="mdl-navigation__link mdl-layout__tab is-active">Projects</a>
+  <a href="./experience" class="mdl-navigation__link">Experience</a>
+  <a href="./contact" class="mdl-navigation__link">Contact Me</a>
   <div class="spacer"></div>
+  <a href="./visitors" class="mdl-navigation__link">Visitors</a>
   {% elif Subject == "experience" %}
   <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
-  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
-  <a href="./Projects" class="mdl-navigation__link ">Projects</a>
-  <a href="./Experience" class="mdl-navigation__link mdl-layout__tab is-active">Experience</a>
-  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <a href="./education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./projects" class="mdl-navigation__link ">Projects</a>
+  <a href="./experience" class="mdl-navigation__link mdl-layout__tab is-active">Experience</a>
+  <a href="./contact" class="mdl-navigation__link">Contact Me</a>
   <div class="spacer"></div>
+  <a href="./visitors" class="mdl-navigation__link">Visitors</a>
   {% elif Subject == "contact" %}
   <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
-  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
-  <a href="./Projects" class="mdl-navigation__link ">Projects</a>
-  <a href="./Experience" class="mdl-navigation__link">Experience</a>
-  <a href="./Contact" class="mdl-navigation__link mdl-layout__tab is-active">Contact Me</a>
+  <a href="./education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./projects" class="mdl-navigation__link ">Projects</a>
+  <a href="./experience" class="mdl-navigation__link">Experience</a>
+  <a href="./contact" class="mdl-navigation__link mdl-layout__tab is-active">Contact Me</a>
   <div class="spacer"></div>
+  <a href="./visitors" class="mdl-navigation__link">Visitors</a>
+  {% elif Subject == "visitor" %}
+  <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
+  <a href="./education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./projects" class="mdl-navigation__link ">Projects</a>
+  <a href="./experience" class="mdl-navigation__link">Experience</a>
+  <a href="./contact" class="mdl-navigation__link">Contact Me</a>
+  <div class="spacer"></div>
+  <a href="./visitors" class="mdl-navigation__link is-active">Visitors</a>
   {% else %}
   <a href="./" class="mdl-navigation__link mdl-layout__tab">Overview</a>
-  <a href="./Education" class="mdl-navigation__link">Education &amp; Skills</a>
-  <a href="./Projects" class="mdl-navigation__link ">Projects</a>
-  <a href="./Experience" class="mdl-navigation__link">Experience</a>
-  <a href="./Contact" class="mdl-navigation__link">Contact Me</a>
+  <a href="./education" class="mdl-navigation__link">Education &amp; Skills</a>
+  <a href="./projects" class="mdl-navigation__link ">Projects</a>
+  <a href="./experience" class="mdl-navigation__link">Experience</a>
+  <a href="./contact" class="mdl-navigation__link">Contact Me</a>
   <div class="spacer"></div>
+  <a href="./visitors" class="mdl-navigation__link">Visitors</a>
   {% endif %}
 {% endblock %}
 

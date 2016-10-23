@@ -88,17 +88,18 @@ def contact():
     info = mongo.db.contactData.find({})
     return render_template('overview.html', Subject="contact", Information=info)
 
-@app.route('/visitor')
+@app.route('/visitors')
 def visitor():
     mapInfo = {'Type': 2}
     coordinates = set()
     visitorData = [mongo.db.overview.find({}), mongo.db.projects.find({}), mongo.db.education.find({}), mongo.db.experience.find({}), mongo.db.contact.find({})]
     for eachData in visitorData:
         for eachVisitor in eachData:
-            coordinates.add((eachVisitor['lat'], eachVisitor['lon']))
+            coordinates.add((eachVisitor['lat'], eachVisitor['lon'], eachVisitor['regionName'] + ', ' + eachVisitor['country']))
     visitorMap = Map(identifier = 'visitors', lat = 48.1548256, lng = 11.4017529, markers = list(coordinates))
     visitorMap.zoom = 2
     visitorMap.style = 'height:700px;margin:0;'
+    visitorMap.fullscreen_control = False
     mapInfo['map'] = visitorMap
     return render_template('overview.html', Subject='visitor', Information=[mapInfo])
 
