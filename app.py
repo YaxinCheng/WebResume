@@ -96,10 +96,7 @@ def visitor():
     for eachData in visitorData:
         for eachVisitor in eachData:
             coordinates.add((eachVisitor['lat'], eachVisitor['lon'], eachVisitor['regionName'] + ', ' + eachVisitor['country']))
-    visitorMap = Map(identifier = 'visitors', lat = 48.1548256, lng = 11.4017529, markers = list(coordinates))
-    visitorMap.zoom = 2
-    visitorMap.style = 'height:700px;margin:0;'
-    visitorMap.fullscreen_control = False
+    visitorMap = Map(identifier = 'visitors', lat = 48.1548256, lng = 11.4017529, markers = list(coordinates), zoom = 2, maptype = 'SATELLITE', style = 'height:700px;margin:0;', fullscreen_control = False)
     mapInfo['map'] = visitorMap
     return render_template('overview.html', Subject='visitor', Information=[mapInfo])
 
