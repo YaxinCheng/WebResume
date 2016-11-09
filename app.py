@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 from flask_pymongo import PyMongo
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 app = Flask(__name__, static_folder="static")
 import pytz
 from datetime import datetime
@@ -88,6 +89,7 @@ def contact():
     info = mongo.db.contactData.find({})
     return render_template('overview.html', Subject="contact", Information=info)
 
+@login_required
 @app.route('/visitors')
 def visitor():
     mapInfo = {'Type': 2}
