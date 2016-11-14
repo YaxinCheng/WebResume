@@ -1,6 +1,7 @@
 click==6.6
 Flask==0.11
 Flask-GoogleMaps==0.2.4
+Flask-Login==0.4.0
 Flask-PyMongo==0.4.1
 gunicorn==19.6.0
 itsdangerous==0.24
