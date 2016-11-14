@@ -20,6 +20,10 @@ zone = pytz.timezone('America/Halifax')
 app.config['GOOGLEMAPS_KEY'] = 'AIzaSyAuVlJE1E0K3s8xpFnJXm38LtlpJ2IJ-W8'
 GoogleMaps(app)
 
+app.secret_key = '***REMOVED***'
+login_manager = LoginManager()
+login_manager.init_app(app)
+
 def getInfo(ip):
   url = 'http://ip-api.com/json/' + str(ip)
   info = requests.get(url).json()
@@ -89,8 +93,9 @@ def contact():
     info = mongo.db.contactData.find({})
     return render_template('overview.html', Subject="contact", Information=info)
 
-@login_required
+
 @app.route('/visitors')
+@login_required
 def visitor():
     mapInfo = {'Type': 2}
     coordinates = set()
