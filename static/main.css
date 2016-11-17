@@ -1,5 +1,5 @@
 html > body {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
+    font-family: "San Francisco", sans-serif !important;
     background-color: #FAFAFA
 }
 
@@ -598,7 +598,7 @@ body:not(.overview) .mdl-navigation__link.download > button {
 }
 
 .docs-layout-content p, .docs-text-styling ol li {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif
+    font-family: "San Francisco", sans-serif
 }
 
 .docs-text-styling h1 {
