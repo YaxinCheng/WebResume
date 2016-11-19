@@ -8,6 +8,7 @@ app = Flask(__name__, static_folder="static")
 import pytz
 from datetime import datetime
 import requests
+from loginForm import loginForm
 
 MONGO_URI = os.environ.get('MONGO_URL')
 if not MONGO_URI:
@@ -93,6 +94,15 @@ def contact():
     info = mongo.db.contactData.find({})
     return render_template('overview.html', Subject="contact", Information=info)
 
+@app.route('/test', methods = ['GET', 'POST'])
+def test():
+    userName = None
+    password = None
+    form = loginForm()
+    if request.method == 'POST':
+        userName = form.userName.data
+        password = form.password.data
+    return render_template('form.html', form = form)
 
 @app.route('/visitors')
 @login_required
