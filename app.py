@@ -96,8 +96,8 @@ def contact():
     info = mongo.db.contactData.find({})
     return render_template('overview.html', Subject="contact", Information=info)
 
-@app.route('/test', methods = ['GET', 'POST'])
-def test():
+@app.route('/entry', methods = ['GET', 'POST'])
+def entry():
     answer = None
     form = loginForm()
     label = 'You are gonna enter the core of universe'
