@@ -14,21 +14,19 @@
 		<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp">
 	            <div class="mdl-card mdl-cell mdl-cell--12-col">
 	              <div class="mdl-card__supporting-text">
-	              <h4><center>Log in</center></h4>
+	              <h4><center>Verification</center></h4>
+	              <h7><center>{{ label }}</center></h7>
+	              <br>
 	              <!-- <h8>"I don't know why I would even make this page for myself..."</h8> -->
 	              <center>
 	              <form method="POST">
 	              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						{{ form.userName(class_ = 'mdl-textfield__input') }} 
-						<label class="mdl-textfield__label" for="sample3">UserName</label>
+						{{ form.dumbQuestion(class_ = 'mdl-textfield__input') }} 
+						<label class="mdl-textfield__label" for="sample3">What's the answer of the universe?</label>
 					</div>
 					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						{{ form.password(class_ = 'mdl-textfield__input') }} 
-					<label class="mdl-textfield__label" for="sample3">Password</label>
-					</div>
-					</form>
 					{{ form.submit(class_ = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent") }}
+					</form>
 					</center>
 	              </div>
 	            </div>

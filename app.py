@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
@@ -9,6 +9,8 @@ import pytz
 from datetime import datetime
 import requests
 from loginForm import loginForm
+import hashlib
+from Manager import Manager
 
 MONGO_URI = os.environ.get('MONGO_URL')
 if not MONGO_URI:
@@ -18,7 +20,7 @@ app.config['MONGO_URI'] = MONGO_URI
 mongo = PyMongo(app)
 zone = pytz.timezone('America/Halifax')
 
-app.config['GOOGLEMAPS_KEY'] = 'AIzaSyAuVlJE1E0K3s8xpFnJXm38LtlpJ2IJ-W8'
+app.config['GOOGLEMAPS_KEY'] = '***REMOVED***'
 GoogleMaps(app)
 
 app.secret_key = '***REMOVED***'
@@ -96,17 +98,30 @@ def contact():
 
 @app.route('/test', methods = ['GET', 'POST'])
 def test():
-    userName = None
-    password = None
+    answer = None
     form = loginForm()
+    label = 'You are gonna enter the core of universe'
     if request.method == 'POST':
-        userName = form.userName.data
-        password = form.password.data
-    return render_template('form.html', form = form)
+        answer = form.dumbQuestion.data
+        sha256Hash = hashlib.sha256()
+        sha256Hash.update((answer + 'ycheng').encode('utf-8'))
+        hashed = sha256Hash.hexdigest()
+        result = mongo.db.secret.find({'_id': hashed})
+        if result.count() == 0:
+            label = 'You are expelled from the universe!'
+        else:
+            user = Manager.get('')
+            login_user(user, remember = True)
+            return redirect(url_for('visitors'))
+    return render_template('form.html', form = form, label = label)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Manager.get(user_id)
 
 @app.route('/visitors')
 @login_required
-def visitor():
+def visitors():
     mapInfo = {'Type': 2}
     coordinates = set()
     visitorData = [mongo.db.overview.find({}), mongo.db.projects.find({}), mongo.db.education.find({}), mongo.db.experience.find({}), mongo.db.contact.find({})]
