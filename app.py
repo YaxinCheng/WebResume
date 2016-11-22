@@ -130,7 +130,16 @@ def visitors():
             coordinates.add((eachVisitor['lat'], eachVisitor['lon'], eachVisitor['regionName'] + ', ' + eachVisitor['country']))
     visitorMap = Map(identifier = 'visitors', lat = 48.1548256, lng = 11.4017529, markers = list(coordinates), zoom = 2, maptype = 'SATELLITE', style = 'height:700px;margin:0;', fullscreen_control = False)
     mapInfo['map'] = visitorMap
-    return render_template('overview.html', Subject='visitor', Information=[mapInfo])
+    statInfo = {'Type': 3, 'Title': 'Statistics'}
+    statistics = mongo.db.statistics.find({})
+    data = list()
+    for each in statistics:
+      formatted = dict()
+      formatted['subTitle'] = each['_id']
+      formatted['subDescription'] = 'Visitor count: {}<br>Last visitor: {}<br>{}, {}<br>{}'.format(str(each['count']), each['last visit'], each['country'], each['regionName'], each['org'])
+      data.append(formatted)
+    statInfo['data'] = data
+    return render_template('overview.html', Subject='visitor', Information=[statInfo, mapInfo])
 
 @app.route('/keepAlive')
 def alive():

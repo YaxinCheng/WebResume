@@ -132,6 +132,44 @@
       {{ each['map'].html }}
     </section>        
    {% endif %}
+  {% if each["Type"] == 3 %}
+  
+    <!-- <div class="demo-card-event mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title mdl-card--expand">
+      <h4>
+        Featured event:<br>
+        May 24, 2016<br>
+        7-11pm
+      </h4>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        Add to Calendar
+      </a>
+      <div class="mdl-layout-spacer"></div>
+      <i class="material-icons">event</i>
+    </div>
+  </div> -->
+
+   <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">{{each["Title"]}}</h4>
+                {% for data in each["data"] %}
+                  <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>{{data["subTitle"]}}</h5>
+                    {{data["subDescription"]|safe}}<br>
+                  </div>
+                {% endfor %}
+                </div>
+                {% if each["BottomAction"] == true %}
+                <div class="mdl-card__actions">
+              <a class="mdl-button" href="{{each["BottomFunction"]}}">{{each["BottomActionName"]}}</a>
+              </div>
+              {% endif %}
+                </div>
+                </section>
+  {% endif %}
 {% endfor %}
 <section class="section--footer--small-section mdl-color--grey-100 mdl-grid"></section>
 </div>
