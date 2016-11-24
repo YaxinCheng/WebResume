@@ -11,6 +11,7 @@ import requests
 from loginForm import loginForm
 import hashlib
 from Manager import Manager
+from random import randint
 
 MONGO_URI = os.environ.get('MONGO_URL')
 if not MONGO_URI:
@@ -101,19 +102,24 @@ def entry():
     answer = None
     form = loginForm()
     label = 'You are gonna enter the core of universe'
+    count = mongo.db.secret.find().count()
+    # questionSel = randint(0, count - 1)
+    questionSel = 0
+    question = mongo.db.secret.find({'_id': questionSel})[0]
     if request.method == 'POST':
         answer = form.dumbQuestion.data
         sha256Hash = hashlib.sha256()
         sha256Hash.update((answer + 'ycheng').encode('utf-8'))
         hashed = sha256Hash.hexdigest()
-        result = mongo.db.secret.find({'_id': hashed})
-        if result.count() == 0:
+        print(hashed)
+        print(question['answer'])
+        if hashed != question['answer']:
             label = 'You are expelled from the universe!'
         else:
             user = Manager.get('')
             login_user(user, remember = True)
             return redirect(url_for('visitors'))
-    return render_template('form.html', form = form, label = label)
+    return render_template('form.html', form = form, question = question, label = label)
 
 @login_manager.user_loader
 def load_user(user_id):

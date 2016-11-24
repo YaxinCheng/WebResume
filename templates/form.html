@@ -22,7 +22,7 @@
 	              <form method="POST">
 	              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						{{ form.dumbQuestion(class_ = 'mdl-textfield__input') }} 
-						<label class="mdl-textfield__label" for="sample3">What's the answer of the universe?</label>
+						<label class="mdl-textfield__label" for="sample3">{{ question['question'] }}</label>
 					</div>
 					<br>
 					{{ form.submit(class_ = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent") }}
