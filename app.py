@@ -102,18 +102,17 @@ def entry():
     answer = None
     form = loginForm()
     label = 'You are gonna enter the core of universe'
-    count = mongo.db.secret.find().count()
-    # questionSel = randint(0, count - 1)
-    questionSel = 0
-    question = mongo.db.secret.find({'_id': questionSel})[0]
+    if request.method == 'GET':
+        count = mongo.db.secret.find().count()
+        questionSel = randint(0, count - 1)
+        question = mongo.db.secret.find({'_id': questionSel})[0]
+        loginForm.question = question
     if request.method == 'POST':
         answer = form.dumbQuestion.data
         sha256Hash = hashlib.sha256()
         sha256Hash.update((answer + 'ycheng').encode('utf-8'))
         hashed = sha256Hash.hexdigest()
-        print(hashed)
-        print(question['answer'])
-        if hashed != question['answer']:
+        if hashed != loginForm.question['answer']:
             label = 'You are expelled from the universe!'
         else:
             user = Manager.get('')
