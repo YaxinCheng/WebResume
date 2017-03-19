@@ -1,0 +1,43 @@
+#extend("base")
+
+#export("body") {
+		<cell>
+			<div class="cell-img" align="left">
+				<img src='/images/paris.jpg' align="left" class="thumbnail">
+			</div>
+			<cell-header class="indentation">Test</cell-header>
+			<button class="more-button" >···</button>
+			<br/>
+			<div class="cell-content">
+			<cell-row>This is a test cell</cell-row>
+			<cell-row>Each row represents some info</cell-row>
+			<cell-row>Each row represents some info</cell-row>
+			<cell-row>Each row represents some info</cell-row>
+			</div>
+			<div style="clear:both"></div>
+		</cell>
+
+		<div>
+			<sfHeavy class='scrollHeader'>Header</sfHeavy>
+		<div class='scrollView'>
+
+			<div class="polaroid">
+				<img src="/images/paris.jpg" style="width: 100%">
+				<div class="container">
+					<sfBold style="font-size: 150%">Title</sfBold>
+					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
+					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
+				</div>
+			</div>
+
+			<div class="polaroid" >
+				<img src="/images/paris.jpg" style="width: 100%">
+				<div class="container">
+					<sfBold style="font-size: 150%">Title</sfBold>
+					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
+					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
+				</div>
+			</div>
+
+		</div>
+}
