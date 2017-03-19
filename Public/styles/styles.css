@@ -28,7 +28,9 @@ html, body {
 	font-family: 'SanFranciscoBlack';
 	src: url('fonts/SF-UI-Display-Black.ttf');
 }
-
+cell-header-sfRegular {
+	font-family: "SanFranciscoRegular";
+}
 sfRegular {
 	font-family: "SanFranciscoRegular";
 }
@@ -109,7 +111,7 @@ hr {
 cell {
 	margin-left: 40px;
 	margin-bottom: 7px;
-	margin-right: 40%;
+	margin-right: 25%;
 	display: block;
 	border-bottom: 1px solid #ccc;
 	font-family: "SanFranciscoRegular";
@@ -180,6 +182,10 @@ div.cell-content {
 	float:left;
 	max-width: 90%;
 	margin-left: 160px;
+}
+div.cell-content-noimg {
+	float:left;
+	max-width: 90%;
 }
 @media (max-width: 1200px) {
 	cell-row {
@@ -431,6 +437,20 @@ div.polaroid {
 	margin-left: 15px;
 	margin-right: 20px;
 }
+sfRegular.subtitle {
+	font-size: 100%; 
+	color: grey;
+	overflow-x: hidden;
+	word-break: break-all;
+	max-width: 80%;
+}
+sfRegular.date {
+	font-size: 100%; 
+	color: #309eda;
+	overflow-x: hidden;
+	word-break: break-all;
+	max-width: 80%;
+}
 div.container {
 	text-align: center;
 	padding: 10px 20px;
@@ -515,4 +535,13 @@ div.bottom > a.link {
 	text-decoration: none;
 	margin-bottom: 20px;
 	text-align: top;
+}
+/*Out link*/
+a:link {
+	color: #309eda;
+	text-decoration: none;
+}
+a:visited {
+	color: #309eda;	
+	text-decoration: none;
 }

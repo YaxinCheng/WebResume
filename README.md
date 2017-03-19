@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Basic Template
 
 A basic vapor template for starting a new Vapor web application. If you're using vapor toolbox, you can use: `vapor new --template=basic`
@@ -13,3 +14,7 @@ Join the welcoming community of fellow Vapor developers in [slack](http://vapor.
 ## 🔧 Compatibility
 
 This package has been tested on macOS and Ubuntu.
+=======
+# ResumeSwift
+Swift resume
+>>>>>>> ef6d52615c63a603f6273e386cdd7d8c07ebe621

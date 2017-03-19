@@ -1,43 +1,51 @@
 #extend("base")
 
 #export("body") {
+	#loop(data, "each") {
+		#equal(each.type, "0") {
 		<cell>
-			<div class="cell-img" align="left">
-				<img src='/images/paris.jpg' align="left" class="thumbnail">
-			</div>
-			<cell-header class="indentation">Test</cell-header>
-			<button class="more-button" >···</button>
-			<br/>
-			<div class="cell-content">
-			<cell-row>This is a test cell</cell-row>
-			<cell-row>Each row represents some info</cell-row>
-			<cell-row>Each row represents some info</cell-row>
-			<cell-row>Each row represents some info</cell-row>
+			#if(each.image) {
+				<div class="cell-img" align="left">
+					<img src='/images/#raw(each.image).png' align="left" class="thumbnail">
+				</div>
+			}
+			#if(each.image) {
+				<cell-header class="indentation">#raw(each.title)</cell-header>
+			}##else() {
+				<cell-header>#(each.title)</cell-header>
+			}
+			#if(each.moreButton) {
+				<button class="more-button" >···</button>
+			}
+			<br>
+			#if(each.image) {
+				<div class="cell-content">
+			}##else() {
+				<div class="cell-content-noimg">
+			}
+			<cell-row>#raw(each.description)</cell-row><br>
 			</div>
 			<div style="clear:both"></div>
 		</cell>
-
-		<div>
-			<sfHeavy class='scrollHeader'>Header</sfHeavy>
-		<div class='scrollView'>
-
+		}
+		##else() {
+		#if(each.header) {
+			<div>
+				<sfHeavy class='scrollHeader'>#raw(each.header)</sfHeavy>
+			<div class='scrollView'>
+			<br>
+		}
 			<div class="polaroid">
-				<img src="/images/paris.jpg" style="width: 100%">
+				<img src="/images/#raw(each.image).png" style="width: 100%">
 				<div class="container">
-					<sfBold style="font-size: 150%">Title</sfBold>
-					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
-					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
+					<sfBold style="font-size: 150%">#raw(each.title)</sfBold>
+					<sfRegular class="subtitle">#raw(each.description)</sfRegular>
 				</div>
 			</div>
-
-			<div class="polaroid" >
-				<img src="/images/paris.jpg" style="width: 100%">
-				<div class="container">
-					<sfBold style="font-size: 150%">Title</sfBold>
-					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
-					<sfRegular style="font-size: 100%; color: grey;">Content</sfRegular>
-				</div>
+		#if(each.end) {
 			</div>
-
-		</div>
+			<hr/>
+		}
+		}
+	}
 }

@@ -29,37 +29,37 @@
 	<div class="tab-bar">
 	#equal(category, "overview") {
 		<button class="tab-bar-item-isActive" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
-		<button class="tab-bar-item" id='skill' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skill</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
 		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
 		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
 		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
-	} ##equal(category, "skill") {
+	} ##equal(category, "skills") {
 		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
-		<button class="tab-bar-item-isActive" id='skill' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skill</button>
+		<button class="tab-bar-item-isActive" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
 		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
 		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
 		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
 	} ##equal(category, "projects") {
 		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
-		<button class="tab-bar-item" id='skill' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skill</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
 		<button class="tab-bar-item-isActive" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
 		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
 		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
 	} ##equal(category, "experience") {
 		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
-		<button class="tab-bar-item" id='skill' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skill</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
 		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
 		<button class="tab-bar-item-isActive" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
 		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
 	} ##equal(category, "contact") {
 		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
-		<button class="tab-bar-item" id='skill' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skill</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
 		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
 		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
 		<button class="tab-bar-item-isActive" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
 	} ##if(category) {
 		<button class="tab-bar-item-isActive" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
-		<button class="tab-bar-item" id='skill' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skill</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
 		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
 		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
 		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
@@ -79,12 +79,13 @@
 </html>
 
 <script type="text/javascript">
-	tabItems = [document.getElementById('overview'), document.getElementById('skill'), document.getElementById('projects'), document.getElementById('experience'), document.getElementById('contact')];
+	tabItems = [document.getElementById('overview'), document.getElementById('skills'), document.getElementById('projects'), document.getElementById('experience'), document.getElementById('contact')];
 	function tabClicked(element) {
 		for (i = 0; i < tabItems.length; i ++ ) {
 			tabItems[i].className = 'tab-bar-item';
 		}
 		element.className = 'tab-bar-item-isActive';
+		location.href = './' + element.id == 'overview' ? '' : element.id;
 	}
 
 	function mouseMove(element) {
