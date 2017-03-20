@@ -41,6 +41,11 @@
 					<sfBold style="font-size: 150%">#raw(each.title)</sfBold>
 					<sfRegular class="subtitle">#raw(each.description)</sfRegular>
 				</div>
+				#if(each.link) {
+					<div class="container" style="width: 100%; padding: 0px 0px;margin-bottom: 0px">
+						<button class="link" onclick="openInNewTab('#raw(each.link)');">#(each.linkName)</button>
+					</div>
+				}
 			</div>
 		#if(each.end) {
 			</div>
