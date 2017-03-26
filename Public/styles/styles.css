@@ -118,7 +118,6 @@ hr {
 cell {
 	margin-left: 40px;
 	margin-bottom: 7px;
-	/*margin-right: 25%;*/
 	display: block;
 	border-bottom: 1px solid #ccc;
 	font-family: "SanFranciscoRegular";
@@ -191,18 +190,18 @@ cell-row {
 }
 div.cell-content {
 	float:left;
-	max-width: 90%;
+	max-width: 100%;
 	margin-left: 160px;
 }
 div.cell-content-noimg {
 	float:left;
-	max-width: 90%;
+	max-width: 100%;
 }
 @media (max-width: 1200px) {
 	cell-row {
 		font-family: "SanFranciscoRegular";
 		font-size: 100%;
-		width: 92%;
+		width: 100%;
 		color: grey;
 		float: left;
 		overflow-x: hidden;
@@ -211,13 +210,12 @@ div.cell-content-noimg {
 	cell-header {
 		font-family: "SanFranciscoBold";
 		font-size: 150%;
-		width: 92%;
+		width: 100%;
 		float: left;
 		overflow-x: hidden;
 		white-space: normal;
 		word-break: break-all;
 	}
-}
 }
 cell-row:after {
 	content: "\a";
@@ -264,6 +262,7 @@ img.thumbnail {
 	margin-top: 15px;
 	padding-left: 30px;
 	overflow-x: scroll;
+	overflow-y: hidden;
 	-webkit-overflow-scrolling:touch;
 	white-space: nowrap;
 	-webkit-transition: all .2s;
@@ -328,8 +327,9 @@ img.thumbnail {
 		height: 50px;
 		background: white;
 		margin-top: 15px;
-		padding-left: 5px;
+		padding-left: 0px;
 		overflow-x: scroll;
+		overflow-y: hidden;
 		-webkit-overflow-scrolling:touch;
 		white-space: nowrap;
 		-webkit-transition: all .2s;
@@ -339,6 +339,8 @@ img.thumbnail {
 	.tab-bar-item {
 		height: 50px;
 		margin-right: 0px;
+		padding-left: 10px;
+		padding-right: 5px;
 		text-align: baseline;
 		background: transparent;
 		font-family: "SanFranciscoSemiBold";
@@ -378,6 +380,8 @@ img.thumbnail {
 	.tab-bar-item-isActive {
 		height: 50px;
 		margin-right: 0px;
+		padding-left: 10px;
+		padding-right: 5px;
 		text-align: left;
 		background: transparent;
 		font-family: "SanFranciscoHeavy";
@@ -394,23 +398,41 @@ img.thumbnail {
 		height: 50px;
 		background: white;
 		margin-top: 15px;
-		padding-left: 30px;
+		padding-left: 35px;
 		overflow-x: scroll;
+		overflow-y: hidden;
 		-webkit-overflow-scrolling:touch;
 		white-space: nowrap;
 		-webkit-transition: all .2s;
 		-moz-transition: all .2s;
 		transition: all .2s;
-		width: 92%;
+		width: 100%;
 	}
 	.tab-bar-item {
 		height: 50px;
 		margin-right: 0px;
+		padding-left: 10px;
+		padding-right: 5px;
 		text-align: baseline;
 		background: transparent;
 		font-family: "SanFranciscoSemiBold";
 		color: grey;
 		font-size: 200%;
+		border: none;
+		-webkit-transition: all .2s;
+		-moz-transition: all .2s;
+		transition: all .2s;
+	}
+	.tab-bar-item-isActive {
+		height: 50px;
+		margin-right: 0px;
+		padding-left: 0px;
+		padding-right: 5px;
+		text-align: left;
+		background: transparent;
+		font-family: "SanFranciscoHeavy";
+		color: black;
+		font-size: 250%;
 		border: none;
 		-webkit-transition: all .2s;
 		-moz-transition: all .2s;
@@ -495,6 +517,7 @@ div.container {
 }
 .scrollView {
 	overflow-x: scroll;
+	overflow-y: hidden;
 	-webkit-overflow-scrolling:touch;
 	overflow-y: hidden;
 	height: 15%;
@@ -508,6 +531,7 @@ div.container {
 	}
 	.scrollView {
 		overflow-x: scroll;
+		overflow-y: hidden;
 		-webkit-overflow-scrolling:touch;
 		overflow-y: hidden;
 		height: 15%;
