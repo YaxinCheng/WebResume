@@ -8,17 +8,17 @@
     <title>Everything about Y.Cheng</title>
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Chrome Setting -->
-    <link rel="icon" sizes="192x192" href="static/android-desktop.png">
+    <link rel="icon" sizes="191x191" href="/images/android-desktop.png">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/ios-desktop.png">
     <!-- Windows 8 -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileImage" content="/images/ios-desktop.png">
     <meta name="msapplication-TileColor" content="#()3372DF">
 
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/ios-desktop.png">
     <!-- JS -->
     <script src="https://code.getmdl.io/1.1.2/material.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
