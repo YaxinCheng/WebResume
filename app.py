@@ -24,7 +24,7 @@ zone = pytz.timezone('America/Halifax')
 app.config['GOOGLEMAPS_KEY'] = '***REMOVED***'
 GoogleMaps(app)
 
-app.secret_key = '***REMOVED***'
+app.secret_key = ''
 login_manager = LoginManager()
 login_manager.init_app(app)
 
