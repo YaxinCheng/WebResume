@@ -175,7 +175,7 @@ cell {
 cell-header {
 	font-family: "SanFranciscoBold";
 	font-size: 150%;
-	word-wrap: break-all;
+	word-wrap: break-word;
 	white-space: pre;
 }
 cell-header.indentation {
@@ -205,7 +205,7 @@ div.cell-content-noimg {
 		color: grey;
 		float: left;
 		overflow-x: hidden;
-		word-break: break-all;
+		word-break: break-word;
 	}
 	cell-header {
 		font-family: "SanFranciscoBold";
@@ -214,7 +214,7 @@ div.cell-content-noimg {
 		float: left;
 		overflow-x: hidden;
 		white-space: normal;
-		word-break: break-all;
+		word-break: break-word;
 	}
 }
 cell-row:after {
@@ -490,14 +490,14 @@ sfRegular.subtitle {
 	font-size: 100%; 
 	color: grey;
 	overflow-x: hidden;
-	word-break: break-all;
+	word-break: break-word;
 	max-width: 80%;
 }
 sfRegular.date {
 	font-size: 100%; 
 	color: #309eda;
 	overflow-x: hidden;
-	word-break: break-all;
+	word-break: break-word;
 	max-width: 80%;
 }
 button.link {
