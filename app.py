@@ -15,7 +15,7 @@ from random import randint
 
 MONGO_URI = os.environ.get('MONGO_URL')
 if not MONGO_URI:
-  MONGO_URI = '***REMOVED***'
+  MONGO_URI = ''
 
 app.config['MONGO_URI'] = MONGO_URI
 mongo = PyMongo(app)
