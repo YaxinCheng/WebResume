@@ -21,6 +21,7 @@
     <link rel="shortcut icon" href="images/favicon.png">
     <!-- JS -->
     <script src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Header -->
     <br/>
     <head>
@@ -66,14 +67,17 @@
 	}
 	</div>
 	<hr/>
+	
     <body>
         #import("body")
     </body>
     	<div class="bottom">
 		<br/>
-		<a href="https://google.ca">Test</a>
-		<a style="margin-left: 10%">Test</a>
-		<br/>
+		<a href="/Résumé.pdf" style="color: #()bcbcbc">Download a pdf version as souvenir?</a>
+		<br>
+		<br>
+		<a style="color: #()bcbcbc">This web page is designed and coded by Yaxin Cheng</a><br>
+		<a style="color: #()bcbcbc">Some pictures are from internet, and please contact me if it violates your copyright</a><br>
 		<br/>
 	</div>
 </html>
@@ -113,5 +117,16 @@
 	function openInNewTab(url) {
 		var win = window.open(url, '_blank');
 		win.focus();
+	}
+
+	function showPanel(id) {
+		panel = $("#()" + id);
+		panelDisplay = panel.css('right');
+		distance = panelDisplay == "0px" ? '-30%' : '0%';
+		panel.css("right", distance);
+	}
+
+	function openLink(url) {
+		location.href = url;
 	}
 </script>

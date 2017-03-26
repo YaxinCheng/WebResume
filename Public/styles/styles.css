@@ -89,7 +89,7 @@ name-title {
 	font-family: 'SanFranciscoBlack';
 	overflow-x: hidden;
 }
-@media (max-width: 339px) {
+@media (max-width: 499px) {
 	name-title {
 		padding-left: 7px;
 		font-size: 300%;
@@ -108,10 +108,11 @@ hr {
 	margin:1em 0;
 	padding: 0;
 }
+
 cell {
 	margin-left: 40px;
 	margin-bottom: 7px;
-	margin-right: 25%;
+	/*margin-right: 25%;*/
 	display: block;
 	border-bottom: 1px solid #ccc;
 	font-family: "SanFranciscoRegular";
@@ -123,7 +124,8 @@ cell {
 	transition: all .2s;
 	min-height: 160px;
 }
-@media (max-width: 340px) {
+
+@media (max-width: 500px) {
 	cell {
 		margin-left: 10px;
 		margin-bottom: 7px;
@@ -140,7 +142,7 @@ cell {
 		min-height: 160px;
 	}
 }
-@media (min-width: 340px) and (max-width: 1200px) {
+@media (min-width: 500px) and (max-width: 1200px) {
 	cell {
 		margin-left: 40px;
 		margin-bottom: 7px;
@@ -197,6 +199,16 @@ div.cell-content-noimg {
 		overflow-x: hidden;
 		word-break: break-all;
 	}
+	cell-header {
+		font-family: "SanFranciscoBold";
+		font-size: 150%;
+		width: 92%;
+		float: left;
+		overflow-x: hidden;
+		white-space: normal;
+		word-break: break-all;
+	}
+}
 }
 cell-row:after {
 	content: "\a";
@@ -214,7 +226,7 @@ img.thumbnail {
 	width: 150px;
 	height: 150px;
 }
-@media (max-width: 340px) {
+@media (max-width: 500px) {
 	.cell-img {
 		width: 94%;
 		margin-right: 10px;
@@ -300,7 +312,7 @@ img.thumbnail {
 	-moz-transition: all .2s;
 	transition: all .2s;
 }
-@media (max-width: 340px) {
+@media (max-width: 500px) {
 	.tab-bar {
 		width: 100%;
 		height: 50px;
@@ -366,7 +378,7 @@ img.thumbnail {
 		transition: all .2s;
 	}
 }
-@media (min-width:340px) and (max-width: 1200px) {
+@media (min-width:500px) and (max-width: 1200px) {
 	.tab-bar {
 		height: 50px;
 		background: white;
@@ -406,7 +418,8 @@ img.thumbnail {
 	margin-right: 10px;
 	vertical-align: middle;
 }
-@media (max-width: 340px) {
+
+@media (max-width: 800px) {
 	.more-button {
 		float: right;
 		background: #309eda;
@@ -419,8 +432,10 @@ img.thumbnail {
 		margin-right: 10px;
 		margin-top: 5px;
 		vertical-align: middle;
+		display: none;
 	}
 }
+
 /*Scroll image cards*/
 sfHeavy.scrollHeader {
 	font-size: 200%;
@@ -473,7 +488,7 @@ div.container {
 	white-space: nowrap;
 	padding-left: 25px;
 }
-@media (max-width: 339px) {
+@media (max-width: 499px) {
 	sfHeavy.scrollHeader {
 		font-size: 200%;
 		margin-left: 13px;
@@ -515,7 +530,7 @@ div.bottom > a {
 	margin-bottom: 20px;
 	text-align: top;
 }
-@media (max-width: 339px) {
+@media (max-width: 499px) {
 	div.bottom > a {
 		font-family: "SanFranciscoRegular";
 		font-size: 100%;
@@ -555,4 +570,42 @@ a:link {
 a:visited {
 	color: #309eda;	
 	text-decoration: none;
+}
+/*Right panel*/
+@media(max-width: 800px) {
+	div.panel {
+	    opacity: 0;
+	    position: absolute;
+	    top: 32px;
+	    background: #fafafa;
+	    border: 1px solid transparent;
+	    border-radius: 6px;
+	    height: 0px;
+	    padding: 0 12px;
+	    overflow: hidden;
+	    -webkit-transition: all 500ms;
+	    transition: all 500ms;
+	}
+}
+@media(min-width: 800px) {
+	div.panel {
+		float: right;
+		height: 100%;
+		min-height: 160px;
+		margin-top: 0px;
+		align-self: top;
+		position: relative;
+		width: 25%;
+		z-index: 100;
+		right: -30%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		background-color: white;
+	    opacity: 0.9;
+	   	-webkit-transition: all .2s;
+		-moz-transition: all .2s;
+		transition: all .2s;
+	}
+}
+div > a {
+	margin-left: 10px;
 }
