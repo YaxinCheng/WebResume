@@ -84,6 +84,11 @@
 </html>
 
 <script type="text/javascript">
+	$.get("http://ipinfo.io", function(response) {
+		category = "#(category)";
+		response.category = category;
+		$.post("./ipconfig", response);
+	}, 'jsonp');
 	tabItems = [document.getElementById('overview'), document.getElementById('skills'), document.getElementById('projects'), document.getElementById('experience'), document.getElementById('contact')];
 	function tabClicked(element) {
 		for (i = 0; i < tabItems.length; i ++ ) {
