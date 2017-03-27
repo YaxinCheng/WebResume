@@ -12,8 +12,9 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <meta name="apple-mobile-web-app-title" content="Everything about Yaxin Cheng">
     <link rel="apple-touch-icon-precomposed" href="/images/ios-desktop.png">
+    <link rel="apple-touch-icon" href="/images/ios-desktop.png">
     <!-- Windows 8 -->
     <meta name="msapplication-TileImage" content="/images/ios-desktop.png">
     <meta name="msapplication-TileColor" content="#()3372DF">
