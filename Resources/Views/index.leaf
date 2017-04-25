@@ -4,7 +4,7 @@
 	#loop(data, "each") {
 		#equal(each.type, "0") {
 		<cell>
-			#if(each.moreButton) {
+			#equal(each.moreButton, "···") {
 				<div id='#(each.panelID)' class='panel'>
 					#raw(each.panelOpt)
 				</div>
@@ -14,11 +14,13 @@
 					<img src='/images/#raw(each.image).png' align="left" class="thumbnail">
 				</div>
 			}
+			
 			#if(each.image) {
-				<cell-header class="indentation">#raw(each.title)</cell-header>
+				<div style="max-width: 80%;padding-left: 160px;">
 			}##else() {
-				<cell-header>#(each.title)</cell-header>
+				<div>
 			}
+			<cell-header>#raw(each.title)</cell-header>
 			#if(each.moreButton) {
 				#if(each.panelOpt) {
 					<button class="more-button" onclick="showPanel('#raw(each.panelID)')">#(each.moreButton)</button>
@@ -26,6 +28,7 @@
 					<button class="more-button" onclick="openLink('#raw(each.moreButtonLink)')">#(each.moreButton)</button>
 				}
 			}
+			</div>
 			<br>
 			#if(each.image) {
 				<div class="cell-content">

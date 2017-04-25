@@ -128,7 +128,7 @@
 	function showPanel(id) {
 		panel = $("#()" + id);
 		panelDisplay = panel.css('right');
-		distance = panelDisplay == "0%" ? '-30%' : '0%';
+		distance = panelDisplay == "0px" ? '-30%' : '0%';
 		panel.css("right", distance);
 	}
 

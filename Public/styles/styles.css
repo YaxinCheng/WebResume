@@ -149,7 +149,7 @@ cell {
 		min-height: 160px;
 	}
 }
-@media (min-width: 500px) and (max-width: 1200px) {
+@media (min-width: 500px) and (max-width: 800px) {
 	cell {
 		margin-left: 40px;
 		margin-bottom: 7px;
@@ -197,7 +197,7 @@ div.cell-content-noimg {
 	float:left;
 	max-width: 100%;
 }
-@media (max-width: 1200px) {
+@media (max-width: 800px) {
 	cell-row {
 		font-family: "SanFranciscoRegular";
 		font-size: 100%;
@@ -393,7 +393,7 @@ img.thumbnail {
 		transition: all .2s;
 	}
 }
-@media (min-width:500px) and (max-width: 1200px) {
+@media (min-width:500px) and (max-width: 800px) {
 	.tab-bar {
 		height: 50px;
 		background: white;
@@ -451,6 +451,8 @@ img.thumbnail {
 	font-size: 20px;
 	margin-right: 10px;
 	vertical-align: middle;
+	right: 25%;
+	position: absolute;
 }
 
 @media (max-width: 800px) {
