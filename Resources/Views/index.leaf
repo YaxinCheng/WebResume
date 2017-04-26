@@ -6,7 +6,8 @@
 		<cell>
 			#equal(each.moreButton, "···") {
 				<div id='#(each.panelID)' class='panel'>
-					#raw(each.panelOpt)
+				<sfBold style='padding-left: 10px; font-size: 100%;'>#(each.panelOpt.title)</sfBold><br>
+				#raw(each.panelOpt.options)
 				</div>
 			}
 			#if(each.image) {

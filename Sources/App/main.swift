@@ -5,75 +5,67 @@ import Foundation
 let drop = Droplet()
 let mongoDB = MongoDB()
 
-drop.get { req in
-	guard let cursor = mongoDB.cursor else {
+func convertToNode(bson: Document) throws -> Node {
+	var result = [String: Node]()
+	var arrayResult = [Node]()
+	for (key, value) in bson {
+		if value is Document {
+			if let _ = Int(key) {
+				arrayResult.append(try convertToNode(bson: value as! Document))
+			} else {
+				result[key] = try convertToNode(bson: value as! Document)
+			}
+		} else {
+			if let _ = Int(key) {
+				arrayResult.append(try Node(node: value is String ? value as! String : "\(value)"))
+			} else {
+				result[key] = try Node(node: value is String ? value as! String : "\(value)")
+			}
+		}
+	}
+	return arrayResult.isEmpty ? try Node(node: result) : try Node(node: arrayResult)
+}
+
+func queryData(cursor: String, sortAscend: Bool = true) throws -> Node {
+	guard let mongoCursor = mongoDB.cursor else {
 		print("Database cannot be connected")
 		throw Abort.badRequest
 	}
-	let data = cursor["overviewContent"]
-	let information = Array(try data.find()).map({mongoDB.convertToDictionary(bson: $0)})
-						.sorted {Int($0["order"]!)! < Int($1["order"]!)!}
-	let nodes = try Node(node: information.flatMap {try? Node(node: $0)})
+	let data = mongoCursor[cursor]
+	let information = Array(try data.find())
+		.sorted { sortAscend ? (Int($0["order"]!)! < Int($1["order"]!)!) : (Int($0["order"]!)! > Int($1["order"]!)!) }
+		.flatMap({try? convertToNode(bson: $0)})
+	return try Node(node: information)
+}
+
+drop.get { req in
+	let nodes = try queryData(cursor: "overviewContent")
 	return try drop.view.make("index", ["category": "overview", "data": nodes])
 }
 
 drop.get("skills") { req in
-	guard let cursor = mongoDB.cursor else {
-		print("Database cannot be connected")
-		throw Abort.badRequest
-	}
-	let data = cursor["skillContent"]
-	let information = Array(try data.find()).map({mongoDB.convertToDictionary(bson: $0)})
-						.sorted {Int($0["order"]!)! < Int($1["order"]!)!}
-	let nodes = try Node(node: information.flatMap {try? Node(node: $0)})
+	let nodes = try queryData(cursor: "skillContent")
+	print(nodes)
 	return try drop.view.make("index", ["category": "skills",  "data": nodes])
 }
 
 drop.get("projects") { req in
-	guard let cursor = mongoDB.cursor else {
-		print("Database cannot be connected")
-		throw Abort.badRequest
-	}
-	let data = cursor["projectContent"]
-	let information = Array(try data.find()).map({mongoDB.convertToDictionary(bson: $0)})
-						.sorted {Int($0["order"]!)! < Int($1["order"]!)!}
-	let nodes = try Node(node: information.flatMap {try? Node(node: $0)})
+	let nodes = try queryData(cursor: "projectContent")
 	return try drop.view.make("index", ["category": "projects", "data": nodes])
 }
 
 drop.get("experience") { req in
-	guard let cursor = mongoDB.cursor else {
-		print("Database cannot be connected")
-		throw Abort.badRequest
-	}
-	let data = cursor["experienceContent"]
-	let information = Array(try data.find()).map({mongoDB.convertToDictionary(bson: $0)})
-						.sorted {Int($0["order"]!)! > Int($1["order"]!)!}
-	let nodes = try Node(node: information.flatMap {try? Node(node: $0)})
+	let nodes = try queryData(cursor: "experienceContent", sortAscend: false)
 	return try drop.view.make("index", ["category": "experience", "data": nodes])
 }
 
 drop.get("contact") { req in
-	guard let cursor = mongoDB.cursor else {
-		print("Database cannot be connected")
-		throw Abort.badRequest
-	}
-	let data = cursor["contactContent"]
-	let information = Array(try data.find()).map({mongoDB.convertToDictionary(bson: $0)})
-						.sorted {Int($0["order"]!)! < Int($1["order"]!)!}
-	let nodes = try Node(node: information.flatMap {try? Node(node: $0)})
+	let nodes = try queryData(cursor: "contactContent", sortAscend: false)
 	return try drop.view.make("index", ["category": "contact", "data": nodes])
 }
 
 drop.get("overview") { req in
-	guard let cursor = mongoDB.cursor else {
-		print("Database cannot be connected")
-		throw Abort.badRequest
-	}
-	let data = cursor["overviewContent"]
-	let information = Array(try data.find()).map({mongoDB.convertToDictionary(bson: $0)})
-						.sorted {Int($0["order"]!)! < Int($1["order"]!)!}
-	let nodes = try Node(node: information.flatMap {try? Node(node: $0)})
+	let nodes = try queryData(cursor: "overviewContent")
 	return try drop.view.make("index", ["category": "overview", "data": nodes])
 }
 
