@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<link rel='stylesheet' href='/styles/styles.css'>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Everything about Y.Cheng" content="Are you looking for Yaxin Cheng @ Halifax?">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Everything about Y.Cheng</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Chrome Setting -->
+    <link rel="icon" sizes="191x191" href="/images/android-desktop.png">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Everything about Yaxin Cheng">
+    <link rel="apple-touch-icon-precomposed" href="/images/ios-desktop.png">
+    <link rel="apple-touch-icon" href="/images/ios-desktop.png">
+    <!-- Windows 8 -->
+    <meta name="msapplication-TileImage" content="/images/ios-desktop.png">
+    <meta name="msapplication-TileColor" content="#()3372DF">
+
+    <link rel="shortcut icon" href="images/ios-desktop.png">
+    <!-- JS -->
+    <script src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Header -->
+    <br/>
+    <head>
+		<name-title>Yaxin Cheng</name-title>
+	</head>
+	<div class="tab-bar">
+	#equal(category, "overview") {
+		<button class="tab-bar-item-isActive" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
+		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
+		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
+		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
+	} ##equal(category, "skills") {
+		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
+		<button class="tab-bar-item-isActive" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
+		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
+		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
+		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
+	} ##equal(category, "projects") {
+		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
+		<button class="tab-bar-item-isActive" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
+		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
+		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
+	} ##equal(category, "experience") {
+		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
+		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
+		<button class="tab-bar-item-isActive" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
+		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
+	} ##equal(category, "contact") {
+		<button class="tab-bar-item" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
+		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
+		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
+		<button class="tab-bar-item-isActive" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
+	} ##if(category) {
+		<button class="tab-bar-item-isActive" id='overview' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Overview</button>
+		<button class="tab-bar-item" id='skills' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Skills</button>
+		<button class="tab-bar-item" id='projects' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Projects</button>
+		<button class="tab-bar-item" id='experience' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Experience</button>
+		<button class="tab-bar-item" id='contact' onclick="tabClicked(this)" onmouseover="mouseMove(this)" onmouseleave="mouseOut(this)">Contact</button>
+	}
+	</div>
+	<hr/>
+	
+    <body>
+        #import("body")
+    </body>
+    	<div class="bottom">
+		<br/>
+		<a href="/Resume.pdf" style="color: #()bcbcbc">Download a pdf version as souvenir?</a>
+		<br>
+		<br>
+		<a style="color: #()bcbcbc">This web page is designed and coded by Yaxin Cheng</a><br>
+		<a style="color: #()bcbcbc">Some pictures are from internet, and please contact me if it violates your copyright</a><br>
+		<br/>
+	</div>
+</html>
+
+<script type="text/javascript">
+	$.get("http://ipinfo.io", function(response) {
+		category = "#(category)";
+		response.category = category;
+		$.post("./ipconfig", response);
+	}, 'jsonp');
+	tabItems = [document.getElementById('overview'), document.getElementById('skills'), document.getElementById('projects'), document.getElementById('experience'), document.getElementById('contact')];
+	function tabClicked(element) {
+		for (i = 0; i < tabItems.length; i ++ ) {
+			tabItems[i].className = 'tab-bar-item';
+		}
+		element.className = 'tab-bar-item-isActive';
+		location.href = './' + element.id == 'overview' ? '' : element.id;
+	}
+
+	function mouseMove(element) {
+		if (element.className != 'tab-bar-item-isActive') {
+			for (i = 0; i < tabItems.length; i ++) {
+				if (tabItems[i].className == 'tab-bar-item-isActive') {
+					tabItems[i].className = 'tab-bar-item-mouseLeft';
+				}
+			}
+			element.className = 'tab-bar-item-mouseOver';
+		}
+	}
+
+	function mouseOut(element) {
+		if (element.className != 'tab-bar-item-mouseLeft' && element.className != 'tab-bar-item-isActive') {
+			for (i = 0; i < tabItems.length; i ++ ) {
+				if (tabItems[i].className == 'tab-bar-item-mouseLeft') {
+					tabItems[i].className = 'tab-bar-item-isActive';
+				}
+			}
+			element.className = 'tab-bar-item';
+		}
+	}
+
+	function openInNewTab(url) {
+		var win = window.open(url, '_blank');
+		win.focus();
+	}
+
+	function showPanel(id) {
+		panel = $("#()" + id);
+		panelDisplay = panel.css('right');
+		distance = panelDisplay == "0px" || panelDisplay == "0%" || panelDisplay == "0" ? '-30%' : '0%';
+		panel.css("right", distance);
+	}
+
+	function openLink(url) {
+		location.href = url;
+	}
+</script>

@@ -1,0 +1,69 @@
+#extend("base")
+
+#export("body") {
+	#loop(data, "each") {
+		#equal(each.type, "0") {
+		<cell>
+			#equal(each.moreButton, "···") {
+				<div id='#(each.panelID)' class='panel'>
+				<sfBold style='padding-left: 10px; font-size: 100%;'>#(each.panelOpt.title)</sfBold><br>
+				#raw(each.panelOpt.options)
+				</div>
+			}
+			#if(each.image) {
+				<div class="cell-img" align="left">
+					<img src='/images/#raw(each.image).png' align="left" class="thumbnail">
+				</div>
+			}
+			
+			#if(each.image) {
+				<div style="max-width: 80%;padding-left: 160px;">
+			}##else() {
+				<div>
+			}
+			<cell-header>#raw(each.title)</cell-header>
+			#if(each.moreButton) {
+				#if(each.panelOpt) {
+					<button class="more-button" onclick="showPanel('#raw(each.panelID)')">#(each.moreButton)</button>
+				} ##if(each.moreButtonLink) {
+					<button class="more-button" onclick="openLink('#raw(each.moreButtonLink)')">#(each.moreButton)</button>
+				}
+			}
+			</div>
+			<br>
+			#if(each.image) {
+				<div class="cell-content">
+			}##else() {
+				<div class="cell-content-noimg">
+			}
+			<cell-row>#raw(each.description)</cell-row><br>
+			</div>
+			<div style="clear:both"></div>
+		</cell>
+		}
+		##else() {
+		#if(each.header) {
+			<div>
+				<sfHeavy class='scrollHeader'>#raw(each.header)</sfHeavy>
+			<div class='scrollView'>
+			<br>
+		}
+			<div class="polaroid">
+				<img src="/images/#raw(each.image).png" style="width: 100%">
+				<div class="container">
+					<sfBold style="font-size: 150%">#raw(each.title)</sfBold>
+					<sfRegular class="subtitle">#raw(each.description)</sfRegular>
+				</div>
+				#if(each.link) {
+					<div class="container" style="width: 100%; padding: 0px 0px;margin-bottom: 0px">
+						<button class="link" onclick="openInNewTab('#raw(each.link)');">#(each.linkName)</button>
+					</div>
+				}
+			</div>
+		#if(each.end) {
+			</div>
+			<hr/>
+		}
+		}
+	}
+}
