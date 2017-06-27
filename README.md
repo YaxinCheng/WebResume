@@ -22,6 +22,7 @@ This led me to the web resume 1.0:<br>
 * MongoDB was opted, because it was the symbol of cool technique in my mind, and I was never a fan of MySQL
 * I barely learnt how to build html, css, and javascript. That's why the web page is beautiful but not perfect for me.
 * I have some more ideas need to express, which is not completable by simply changing background and colours
+
 Hereby, I started from the scratch to build my own css files and html<br>
 This is the web resume 2.0:<br>
 * This was literally the first time I write html and css. I had lots of stupid questions, but gladly solved them with my friend Alex
