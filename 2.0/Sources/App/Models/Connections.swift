@@ -4,7 +4,7 @@ struct MongoDB {
 	private let mongoURI: String
 	let cursor: Database?
 	init() {
-		mongoURI = "***REMOVED***"
+		mongoURI = ""
 		cursor = try? Database(mongoURL: mongoURI)
 	}	
 }
